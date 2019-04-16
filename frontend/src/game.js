@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
    
   document.addEventListener('keydown', e=> {
+    divBg.className = "animation"
     var dir = null
     if(e.key == "ArrowRight") {
       dir = 'right'
@@ -28,11 +29,11 @@ document.addEventListener("DOMContentLoaded", function(){
     let left = parseInt(player.style.left)
     let bgpos = divBg.style.backgroundPositionX
     if(direction === 'right') {
-      player.style.left = `${left + 30}px`
+      player.style.left = `${left + 50}px`
       divBg.style.backgroundPositionX = `${bgpos + 10}px`
     }
     else if(direction === 'left') {
-      player.style.left = `${left - 30}px`
+      player.style.left = `${left - 50}px`
       divBg.style.backgroundPositionX = `${bgpos - 10}px`
     }
   }

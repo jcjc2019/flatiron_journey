@@ -9,9 +9,9 @@ body
     position: relative;
     background: url(bg.jpg);
     height: 100vh;
-    background-size: cover;
+    width: 3488px;
     background-position: 0 0;
-    background-repeat:repeat-x;
+    background-repeat:repeat-x; 
 }
 
 #bg.animation
@@ -21,8 +21,8 @@ body
     height: 100vh;
     background-size: cover;
     background-position: 0 0;
-    background-repeat:repeat-x;
-    animation: animate 150s linear infinite;
+    background-repeat:repeat-x; */
+    animation: animate 150s linear infinite; 
 }
 
 
