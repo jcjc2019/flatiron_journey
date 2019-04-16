@@ -23,8 +23,9 @@ ActiveRecord::Schema.define(version: 2019_04_15_191340) do
 
   create_table "players", force: :cascade do |t|
     t.string "username"
+    t.string "imgUrl"
     t.integer "score"
-    t.integer "x"
+    t.string "x"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

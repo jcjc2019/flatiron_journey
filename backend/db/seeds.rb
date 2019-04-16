@@ -7,4 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Player.destroy_all
-player1 = Player.create(username:"Bulbasaur", score:0, x:20)
+player1 = Player.create(username:"Bulbasaur", imgUrl:"assets/bulbasaur.gif", score:0, x:"20px")
