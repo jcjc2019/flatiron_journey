@@ -11,7 +11,37 @@ document.addEventListener("DOMContentLoaded", function(){
    player.style.position = 'absolute'
    console.log('you reached me')
 
+   
+  document.addEventListener('keydown', e=> {
+    var dir = null
+    if(e.key == "ArrowRight") {
+      dir = 'right'
+    }
+    else if(e.key == "ArrowLeft") {
+      dir = 'left'
+    }
+    startMoving(dir)
+  })
+
+  function startMoving(direction) {
+    console.log(divBg.style)
+    let left = parseInt(player.style.left)
+    let bgpos = divBg.style.backgroundPositionX
+    if(direction === 'right') {
+      player.style.left = `${left + 30}px`
+      divBg.style.backgroundPositionX = `${bgpos + 10}px`
+    }
+    else if(direction === 'left') {
+      player.style.left = `${left - 30}px`
+      divBg.style.backgroundPositionX = `${bgpos - 10}px`
+    }
+  }
+
+
+
+
    //make it able to move to the right
+   /*
    document.addEventListener('keydown', e=>{
       if(e.repeat)return
       if(e.key == "ArrowRight"){
@@ -28,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
      }
    })
+   */
 
    // background move
    /*
