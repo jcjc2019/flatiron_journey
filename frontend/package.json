@@ -12,6 +12,7 @@
   "author": "Jack, Jing, Zoe",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^4.3.1"
+    "bootstrap": "^4.3.1",
+    "pixi.js": "^4.8.7"
   }
 }
