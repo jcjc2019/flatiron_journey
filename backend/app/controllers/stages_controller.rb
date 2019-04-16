@@ -1,2 +1,10 @@
 class StagesController < ApplicationController
-end
+    def inded
+        render json: Stage.all
+    end
+
+    def show
+        stage = Stage.find(params[:id]) #find the particular stage for this player
+        render json: stage
+    end
+end 
