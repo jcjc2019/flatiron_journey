@@ -7,4 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Player.destroy_all
+Stage.destroy_all
 player1 = Player.create(username:"Bulbasaur", imgUrl:"assets/bulbasaur.gif", score:0, x:"20px")
+mainStage = Stage.create(name:"main stage", imgUrl:"assets/bg.jpg", x:"10px")

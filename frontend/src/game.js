@@ -1,5 +1,6 @@
 const divBg = document.querySelector('#bg')
 const playerUrl = 'http://localhost:3000/players/1'
+const bgUrl = 'http://localhost:3000/stages/1'
 document.addEventListener("DOMContentLoaded", function(){
    //fetch player 
    fetch(playerUrl)
@@ -12,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function(){
    })
    
 
-   
+   //fetch stage
+   //fetch()
   
-}) 
+})   

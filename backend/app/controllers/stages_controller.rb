@@ -1,5 +1,5 @@
 class StagesController < ApplicationController
-    def inded
+    def index
         render json: Stage.all
     end
 
@@ -8,3 +8,4 @@ class StagesController < ApplicationController
         render json: stage
     end
 end 
+ 
