@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function(){
    .then(function(playerData){
     //instantiate player 
     new Player(playerData)
-    console.log(playerData) 
    })
    
 
