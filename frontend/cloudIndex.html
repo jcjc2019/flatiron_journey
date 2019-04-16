@@ -6,40 +6,52 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <!--PIXI JS library-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.5.5/pixi.min.js"></script>
+    <link rel="stylesheet" href="assets/cloud.css">
+    <!--PIXI JS & PIXI JS audio library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.7.1/pixi.min.js"></script>
+    <script type="text/javascript">
+        window.PIXI = PIXI;
+        window.PIXI["default"] = PIXI;
+    </script>
 
     <title>Flatiron Coding Journey</title>
 </head>
 
 <body>
-    <div>
-        <h1>Your Coding Journey...</h1>
+    <div id = "title">
+        <h1>Coding Journey at Flatiron School</h1>
     </div>
-
+    <div id ="bg-music">
+        <audio controls autoplay loop>
+        <source src="assets/loop2.mp3" type="audio/ogg">
+    </div>
+    
     <script type="text/javascript">
-    var type = "WebGL";
-    if (!PIXI.utils.isWebGLSupported()) {
-        type = "canvas";
-    }
-    PIXI.utils.sayHello(type);
-    var renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.view);
-    </script>
-    <style>
-        body {
-            margin: 0pt;
-            text-align: center;
-            overflow: hidden;
+        var type = "WebGL";
+        if (!PIXI.utils.isWebGLSupported()) {
+            type = "canvas";
         }
-    </style>
-        <script type="text/javascript" src="./src/CloudManager.js"></script>
+        PIXI.utils.sayHello(type);
+        var renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight, {
+            // change background color to blue
+            backgroundColor: '0x22A7F0'
+        });
+        document.body.appendChild(renderer.view);
+        var stage = new PIXI.Container();
+        renderer.render(stage);
+    </script>
+ 
 
-        <script type="text/javascript" src="./src/cloud.js"></script>
+   <div class = "textbox" id = "textbox">
+
+   </div>
+    <script type="text/javascript" src="./src/CloudManager.js"></script>
+    <script type="text/javascript" src="./src/cloud.js"></script>
+    <script type="text/javascript" src="./src/menu.js"></script>
+    <script type="text/javascript" src="./src/music.js"></script>
+
+
+
 
 </body>
 
