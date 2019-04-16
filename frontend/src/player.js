@@ -4,33 +4,48 @@ class Player{
         const player =  document.createElement('img')
         player.src = playerData.imgUrl
         player.style.width = '300px'
-        player.style.height = '300px'
+        player.style.height = '250px'
         player.style.left = playerData.x
         player.style.bottom = "0px"
         player.style.position = 'absolute'
         //this.element = player
         divBg.appendChild(player)
         this.move(player)
+        this.stop(player)//patch player position and bg position
     }
 
-    //display=currentPlayer=>{
-       
-    //}
-
+    
     move=(player)=>{
         document.addEventListener('keydown', e=> {
-            //const player = this
             divBg.className = "animation"
-            var dir = null
             if(e.key == "ArrowRight") {
-              dir = 'right'
-              console.log(player.style.left)
+               walkRight(player) // dir = 'right'
             }else if(e.key == "ArrowLeft") {
-              dir = 'left'
+               walkLeft(player) 
+              //dir = 'left'
             }
-            startMoving(dir, player)
           })
     }
+
+    stop=(player)=>{
+        document.addEventListener('keyup', e=> {
+          console.log(player.style.left)
+          stop(player)
+          //save player position
+          fetch(playerUrl, {  
+                method:"PATCH",
+                headers: {
+                       'Content-Type': 'application/json'
+                         },
+                body: JSON.stringify({
+                        x: player.style.left
+                        })          
+          }) 
+        })
+    }
+
+
+
 
 }
 
