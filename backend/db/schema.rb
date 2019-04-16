@@ -23,7 +23,9 @@ ActiveRecord::Schema.define(version: 2019_04_15_191340) do
 
   create_table "players", force: :cascade do |t|
     t.string "username"
-    t.integer "score", default: 0
+    t.string "imgUrl"
+    t.integer "score"
+    t.string "x"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -40,6 +42,7 @@ ActiveRecord::Schema.define(version: 2019_04_15_191340) do
   create_table "stages", force: :cascade do |t|
     t.string "name"
     t.integer "player_id"
+    t.integer "x"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["player_id"], name: "index_stages_on_player_id"
