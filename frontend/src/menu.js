@@ -17,43 +17,63 @@ const style = new PIXI.TextStyle({
     wordWrapWidth: 600,
 });
 
+//slogan
+const slogan = new PIXI.Text('Your Coding Journey Starts Here...', style);
+slogan .x = 50;
+slogan.y = 50;
+stage.addChild(slogan); 
 
-const icon = new PIXI.Text('Your Coding Journey Starts Here...', style);
-icon.x = 50;
-icon.y = 50;
-stage.addChild(icon);
-
+//start game button
 const startText = new PIXI.Text('New Game', style);
 startText.x = 50;
 startText.y = 250;
 startText.interactive = true;
 startText.buttonMode = true;
-startText.on('pointerdown', onClick);
+startText.on('pointerdown', newGame);
 stage.addChild(startText);
 
-function onClick() {
+function newGame() {
+    //render newform
     let person = prompt("Please enter your name", "Harry Potter");
     if (person != null) {
-        const textbox = document.createElement("div")
-        textbox.setAttribute("class", "textbox")
-        textbox.setAttribute("id", "textbox")
-        textbox.innerHTML =
-            "Hello " + person + "! How are you today?";
-        textbox.style.backgroundColor = '#cc9900';
-        document.body.append(textbox);
-        stage.addChild(textbox);
+
+        let newForm = document.querySelector("#new-player-form")
+        newForm.style.display = ""
+        // const textbox = document.createElement("div")
+        // textbox.setAttribute("class", "textbox")
+        // textbox.setAttribute("id", "textbox")
+        // document.body.append(textbox);
+        // textbox.innerHTML =
+        //     "<p>"+ "Hello " + person + "!" 
+        //     + "<p>" + "Do you want to start your magic journey?";
+        
     }
 }
 
+
+//resume game button
 const resumeText = new PIXI.Text('Resume Game', style);
 resumeText.x = 50;
 resumeText.y = 300;
 resumeText.interactive = true;
 resumeText.buttonMode = true;
-resumeText.click = function () {
-    alert("Hi Mum!");
+resumeText.on('pointerdown', resumeGame);
+stage.addChild(resumeText);
+
+function resumeGame() {
+    let person = prompt("Please enter your name", "Ron Weasley");
+    if (person != null) {
+        const textbox = document.createElement("div")
+        textbox.setAttribute("class", "textbox")
+        textbox.setAttribute("id", "textbox")
+        textbox.innerHTML =
+            "<p>" + "Hello " + person + "!"
+            + "<p>" + "Do you want to resume your magic journey?";
+        document.body.append(textbox);
+    }
 }
 
+//instructions button, render a textbox showing instructions on canvas
 const introText = new PIXI.Text('How to Play', style);
 introText.x = 50;
 introText.y = 350;
@@ -62,6 +82,15 @@ introText.buttonMode = true;
 introText.click = function () {
     alert("Hi Mum!");
 }
-
-stage.addChild(resumeText);
 stage.addChild(introText);
+
+//about button, render github readme file
+const aboutText = new PIXI.Text('About', style);
+aboutText.x = 50;
+aboutText.y = 400;
+aboutText.interactive = true;
+aboutText.buttonMode = true;
+aboutText.click = function () {
+    alert("Hi Mum!");
+}
+stage.addChild(aboutText);

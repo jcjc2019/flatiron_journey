@@ -1,0 +1,40 @@
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0pt;
+    overflow: hidden;
+}
+#title{
+    text-align: left;
+}
+.textbox{
+    position: absolute;
+    z-index: 1;
+    margin: 10;
+    padding: 10;
+    color: #cc9900;
+    text-align: left;
+    font-size: 2.2em;
+    top: 25%;
+    left: 25%;
+    font-family: 'Arial';
+}
+.form#new-player-form{
+    position: absolute;
+    z-index: 1;
+    margin: 10;
+    padding: 10;
+    color: #cc9900;
+    text-align: left;
+    font-size: 1.2em;
+    top: 25%;
+    left: 25%;
+    font-family: 'Arial';
+    /* display: none; */
+}
+#bg-music {
+    display: none;
+}
+canvas {
+    display: block;
+}
