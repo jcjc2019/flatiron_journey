@@ -12,17 +12,25 @@
 
     <!--PIXI JS library-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.7.1/pixi.min.js"></script>
-    <!-- <script type="text/javascript">
-        window.PIXI = PIXI;
-        window.PIXI["default"] = PIXI;
-    </script> -->
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.7.1/pixi.min.js"></script>
-
-    <!--generate form-->
-    <script src="./src/new-game.js"></script>
 
     <title>Flatiron Coding Journey</title>
+        <div id="nav-bar">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="starIndex.html">Coding BootCamp Journey</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link active" href="#" id = "new-game">New Game<span
+                                class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link" href="#" id="resume-game">Resume Game</a>
+                        <a class="nav-item nav-link" href="#" id="how-to-play">How to Play</a>
+                        <a class="nav-item nav-link" href="#" id="about-game">About</a>
+                    </div>
+                </div>
+        </div>
 </head>
 
 <body>
@@ -36,20 +44,25 @@
     <!-- <script src="./src/cloud.js"></script>
     <script src="./src/CloudManager.js"></script> -->
 
-    <!--generate menu-->
+    <!--generate menu rich text menu-->
     <script src="./src/menu.js"></script>
 
-<div id="bg-music">
-    <audio controls autoplay loop>
-        <source src="assets/loop2.mp3" type="audio/ogg">
-</div>
+    <!--form actions, connect to backend-->
+    <script src="./src/game-data.js"></script>
+
+    <div id="bg-music">
+        <audio controls autoplay loop>
+            <source src="assets/loop2.mp3" type="audio/ogg">
+    </div>
 
 <div id="form">
 <form class="form" id="new-player-form">
         <h3>Create New Player</h3>
         <p></p>
         <h4>Username:</h4>
-            <p><input type="text" name="name" value="" placeholder="Harry Porter" class="input-text"></h4>
+            <p><input type="text" name="name" placeholder="Harry Porter" class="new-username-input"
+                    id="new-username-input"></h4>
+                <br>
         <p><h4>Choose a Character:</h4>
             <div class="character-gallery" id="character-gallery">
                 <table>
@@ -64,15 +77,39 @@
         </p>
         <p><input type="submit" name="submit" value="Start New Game" class="submit">
 </form>
+
+<form class="form" id="current-player-form">
+    <h3>Enter Your Username to Resume:</h3>
+    <p><input type="text" name="name" placeholder="Harry Porter" class="old-username-input" id="old-username-input">
+        </h4>
+    <p><input type="submit" name="submit" value="Resume Game" class="submit">
+</form>
 </div>
 
+<div class="textbox" id="instructions">
+    <h3>How to Play</h3>
+    <p></p>
+    <p>Press key right to walk right.
+    <p>Press key left to walk left.
+    <p>You will be stopped by a monster for 5 times.
+    <p>The monster is a symbol of code challenge for each module.</p>
+    <p>You can interact with the monster for a short conversation and a possible code challenge. </p>
+</div>
 
+<div class="textbox" id="about">
+    <h3>About this game</h3>
+    <p></p>
+    <p>This game is a module 3 final project made by Zoe, Jing, and Jack at Flatiron School.
+    <p>It illustrates our coding journey at Flatiron's coding bootcamp.</p> 
+    <p>Please see the project's <a href= "https://github.com/jcjc2019/flatiron_journey"> github page</a> for details.
+</div>
 
 <!--Incorporate game.html as an object inside a div-->
-<!-- <div style="margin: 10 auto; width:100%; height:800px;">
-    <object type="text/html" data="game.html" style="width:100%; height:100%; margin:1%;">
+<div class="game-area">
+    <object type="text/html" data="game.html">
     </object>
-</div> -->
+</div>
+
 </body>
 
 </html>

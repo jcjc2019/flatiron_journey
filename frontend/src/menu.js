@@ -2,7 +2,7 @@
 //menu text
 const style = new PIXI.TextStyle({
     fontFamily: 'Arial',
-    fontSize: 36,
+    fontSize: 30,
     fontStyle: 'italic',
     fontWeight: 'bold',
     fill: ['#ffffff', '#00ff99'], // gradient
@@ -14,83 +14,114 @@ const style = new PIXI.TextStyle({
     dropShadowAngle: Math.PI / 6,
     dropShadowDistance: 6,
     wordWrap: true,
-    wordWrapWidth: 600,
+    wordWrapWidth: 500,
 });
 
 //slogan
-const slogan = new PIXI.Text('Your Coding Journey Starts Here...', style);
-slogan .x = 50;
+const slogan = new PIXI.Text('Your Coding Boot Camp Journey Starts Here...', style);
+slogan.x = 40;
 slogan.y = 50;
 stage.addChild(slogan); 
 
 //start game button
 const startText = new PIXI.Text('New Game', style);
-startText.x = 50;
+startText.x = 40;
 startText.y = 250;
 startText.interactive = true;
 startText.buttonMode = true;
-startText.on('pointerdown', newGame);
 stage.addChild(startText);
 
-function newGame() {
-    //render newform
-    let person = prompt("Please enter your name", "Harry Potter");
-    if (person != null) {
-
-        let newForm = document.querySelector("#new-player-form")
-        newForm.style.display = ""
-        // const textbox = document.createElement("div")
-        // textbox.setAttribute("class", "textbox")
-        // textbox.setAttribute("id", "textbox")
-        // document.body.append(textbox);
-        // textbox.innerHTML =
-        //     "<p>"+ "Hello " + person + "!" 
-        //     + "<p>" + "Do you want to start your magic journey?";
-        
+function newForm() {
+    //clear 2 textboxes & 1 resumeForm
+    const textbox = document.querySelectorAll(".textbox")
+    const newForm = document.querySelector("#new-player-form")
+    const resumeForm = document.querySelector("#current-player-form")
+    textbox.forEach(function(t){
+        if (t.style.display !== "none"){
+            t.style.display = "none"; 
+            newForm.style.display = "block" 
+        };
+    })
+    if(resumeForm.style.display !== "none"){
+        resumeForm.style.display = "none";
+        newForm.style.display = "block";
     }
+ 
 }
 
+startText.on('pointerdown', newForm);
 
 //resume game button
 const resumeText = new PIXI.Text('Resume Game', style);
-resumeText.x = 50;
+resumeText.x = 40;
 resumeText.y = 300;
 resumeText.interactive = true;
 resumeText.buttonMode = true;
-resumeText.on('pointerdown', resumeGame);
+resumeText.on('pointerdown', resumeForm);
 stage.addChild(resumeText);
 
-function resumeGame() {
-    let person = prompt("Please enter your name", "Ron Weasley");
-    if (person != null) {
-        const textbox = document.createElement("div")
-        textbox.setAttribute("class", "textbox")
-        textbox.setAttribute("id", "textbox")
-        textbox.innerHTML =
-            "<p>" + "Hello " + person + "!"
-            + "<p>" + "Do you want to resume your magic journey?";
-        document.body.append(textbox);
+function resumeForm() {
+    //clear 2 textboxes & 1 newForm
+    const textbox = document.querySelectorAll(".textbox")
+    const newForm = document.querySelector("#new-player-form")
+    const resumeForm = document.querySelector("#current-player-form")
+    textbox.forEach(function (t) {
+        if (t.style.display !== "none") {
+            t.style.display = "none";
+            resumeForm.style.display = "block"
+        };
+    })
+    if (newForm.style.display !== "none") {
+        newForm.style.display = "none";
+        resumeForm.style.display = "block";
     }
 }
 
 //instructions button, render a textbox showing instructions on canvas
 const introText = new PIXI.Text('How to Play', style);
-introText.x = 50;
+introText.x = 40;
 introText.y = 350;
 introText.interactive = true;
 introText.buttonMode = true;
-introText.click = function () {
-    alert("Hi Mum!");
-}
+introText.on('pointerdown', displayInstructions);
 stage.addChild(introText);
+
+function displayInstructions() {
+    //clear form div & about textbox
+    const newForm = document.querySelector("#new-player-form")
+    const resumeForm = document.querySelector("#current-player-form")
+    const about = document.querySelector("#about")
+    const instructions = document.querySelector("#instructions")
+
+    if(newForm.style.display !== "none" || about.style.display !== "none" || resumeForm.style.display !== "none"){
+        newForm.style.display = "none";
+        about.style.display = "none";
+        resumeForm.style.display = "none";
+        //show instructions
+        instructions.style.display = "block"
+    }
+}
 
 //about button, render github readme file
 const aboutText = new PIXI.Text('About', style);
-aboutText.x = 50;
+aboutText.x = 40;
 aboutText.y = 400;
 aboutText.interactive = true;
 aboutText.buttonMode = true;
-aboutText.click = function () {
-    alert("Hi Mum!");
-}
+aboutText.on('pointerdown', displayAbout);
 stage.addChild(aboutText);
+function displayAbout() {
+    //clear form div & instructions textbox
+    const newForm = document.querySelector("#new-player-form")
+    const resumeForm = document.querySelector("#current-player-form")
+    const instructions = document.querySelector("#instructions")
+    const about = document.querySelector("#about")
+
+    if (newForm.style.display !== "none" || instructions.style.display !== "none" || resumeForm.style.display !== "none" || about.style.display === "none") {
+        newForm.style.display = "none";
+        resumeForm.style.display = "none";
+        instructions.style.display = "none"
+        //show about
+        about.style.display = "block"
+    }
+}
