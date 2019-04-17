@@ -29,6 +29,7 @@ class Player{
     
     move=(player, playerData)=>{
         document.addEventListener('keydown', e=> {
+           console.log(player.style.left)
             if(e.repeat) return 
               //bg.className = "animation"
             if(e.key == "ArrowRight" ) { //&& parseInt(player.style.left) < 3000
