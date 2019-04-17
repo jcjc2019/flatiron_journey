@@ -9,4 +9,5 @@
 Player.destroy_all
 Stage.destroy_all
 player1 = Player.create(username:"Bulbasaur", imgUrl:"assets/bulbasaur.gif", score:0, x:"20px")
-mainStage = Stage.create(name:"main stage", imgUrl:"assets/bg.jpg", x:"10px")
+mod1 = Stage.create(name:"mod1", imgUrl:"assets/bg.jpg", x:"0px", player_id:1)
+monster1 = Npc.create(name:"light", imgUrl:"assets/monster2.gif", x:"1000px", stage_id:1)

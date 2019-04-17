@@ -1,27 +1,42 @@
+
 class Player{
     constructor(playerData){
         console.log(playerData.x)
         const player =  document.createElement('img')
-        player.src = playerData.imgUrl
-        player.style.width = '300px'
-        player.style.height = '250px'
-        player.style.left = playerData.x
-        player.style.bottom = "0px"
-        player.style.position = 'absolute'
+        player.src = 'assets/static.gif'//playerData.imgUrl
+        player.style.width = '200px'
+        player.style.height = '150px'
+        player.style.left = window.innerWidth / 2 - 100 //playerData.x//
+        player.style.bottom = "200px"
+        player.style.position = 'fixed'
         //this.element = player
-        divBg.appendChild(player)
+        bg.appendChild(player)
         this.move(player)
-        this.stop(player)//patch player position and bg position
+        this.stop(player)
+        setInterval(() => {
+            if(this.direction == 'left'){
+              let left = parseInt(bg.style.left)
+              bg.style.left = `${left + 0.1}px`
+            } 
+            if(this.direction == 'right'){
+              let left = parseInt(bg.style.left)
+              bg.style.left = `${left - 0.1}px`
+            } 
+            
+          }, 1000)
     }
 
     
     move=(player)=>{
         document.addEventListener('keydown', e=> {
-            divBg.className = "animation"
-            if(e.key == "ArrowRight") {
-               walkRight(player) // dir = 'right'
-            }else if(e.key == "ArrowLeft") {
-               walkLeft(player) 
+            if(e.repeat) return 
+              //bg.className = "animation"
+            if(e.key == "ArrowRight" ) { //&& parseInt(player.style.left) < 3000
+                this.direction = 'right'
+                player.src = 'assets/right.gif'
+            }else if(e.key == "ArrowLeft") { // && parseInt(player.style.left) > 20
+               this.direction = 'left'
+               player.src = 'assets/left.gif'
               //dir = 'left'
             }
           })
@@ -29,8 +44,10 @@ class Player{
 
     stop=(player)=>{
         document.addEventListener('keyup', e=> {
+        this.direction = null
           console.log(player.style.left)
           stop(player)
+          player.src = 'assets/static.gif'
           //save player position
           fetch(playerUrl, {  
                 method:"PATCH",
