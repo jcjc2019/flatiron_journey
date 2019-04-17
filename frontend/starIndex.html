@@ -1,4 +1,4 @@
-<!doctype html>
+
 <html lang="en">
 
 <head>
@@ -12,47 +12,61 @@
 
     <!--PIXI JS library-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.7.1/pixi.min.js"></script>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         window.PIXI = PIXI;
         window.PIXI["default"] = PIXI;
-    </script>
+    </script> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.7.1/pixi.min.js"></script>
+
+    <!--generate form-->
+    <script src="./src/new-game.js"></script>
 
     <title>Flatiron Coding Journey</title>
 </head>
 
 <body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.7.1/pixi.min.js"></script>
+    <!-- generate canvas -->
+    <script src="./src/canvas-cover.js"></script>
+
+    <!--Star background-->
+    <script src="./src/star-warp.js"></script>
+
+    <!-- Cloud background -->
+    <!-- <script src="./src/cloud.js"></script>
+    <script src="./src/CloudManager.js"></script> -->
+
+    <!--generate menu-->
+    <script src="./src/menu.js"></script>
 
 <div id="bg-music">
     <audio controls autoplay loop>
         <source src="assets/loop2.mp3" type="audio/ogg">
 </div>
 
-<form class= "form" id = "new-player-form">
+<div id="form">
+<form class="form" id="new-player-form">
         <h3>Create New Player</h3>
         <p></p>
-
-        <h4>Username: 
+        <h4>Username:</h4>
             <p><input type="text" name="name" value="" placeholder="Harry Porter" class="input-text"></h4>
-        <p><h4>Choose a Character:
-        <p><input type="text" name="image" value="" placeholder="Pikachu" class="input-text"></h4>
-        <p><input type="submit" name="submit" value="Create New Player" class="submit">
+        <p><h4>Choose a Character:</h4>
+            <div class="character-gallery" id="character-gallery">
+                <table>
+                    <input type="hidden" id="character-image">
+                    <tr>
+                        <td><img id = "pikachu", src="assets/pikachu_static_320.gif"></td>
+                        <td><img id = "zorua", src="assets/zorua_static_320.gif"></td>
+                        <td><img id ="bulbasaur" , src="assets/bulbasaur_static.gif"></td>
+                    </tr>
+                </table>
+            </div>
+        </p>
+        <p><input type="submit" name="submit" value="Start New Game" class="submit">
 </form>
+</div>
 
-<!--generate canvas-->
-<script src="./src/canvas-cover.js"></script>
-<!--Star background-->
-<script src="./src/star-warp.js"></script>
 
-<!-- Cloud background -->
-<!-- <script src="./src/cloud.js"></script>
-<script src="./src/CloudManager.js"></script> -->
-
-<!--generate menu-->
-<script src="./src/menu.js"></script>
-
-<!--generate -->
-<script src="./src/new-game.js"></script>
 
 <!--Incorporate game.html as an object inside a div-->
 <!-- <div style="margin: 10 auto; width:100%; height:800px;">
