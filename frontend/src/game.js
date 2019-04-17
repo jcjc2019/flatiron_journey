@@ -6,11 +6,12 @@ const bgUrl = 'http://localhost:3000/stages/1'
 fetch(bgUrl) 
 .then(function(response){
   return response.json()
-})
+})  
 .then(function(stageData){
   new Stage(stageData) //instantiate stage
-  Stage.display()
-  console.log(stageData.npcs) //continue here. how to instantiate npc using rails association?
+  Stage.josh()
+  Stage.monsterLight()
+  //console.log(stageData.npcs) //continue here. how to instantiate npc using rails association?
 })
 
 

@@ -3,7 +3,7 @@ class Player{
     constructor(playerData){
         console.log(playerData.x)
         const player =  document.createElement('img')
-        player.src = 'assets/static.gif'//playerData.imgUrl
+        player.src = playerData.staticImgUrl
         player.style.width = '200px'
         player.style.height = '150px'
         player.style.left = window.innerWidth / 2 - 100 //playerData.x//
@@ -11,8 +11,8 @@ class Player{
         player.style.position = 'fixed'
         //this.element = player
         bg.appendChild(player)
-        this.move(player)
-        this.stop(player)
+        this.move(player, playerData)
+        this.stop(player, playerData)
         setInterval(() => {
             if(this.direction == 'left'){
               let left = parseInt(bg.style.left)
@@ -27,27 +27,27 @@ class Player{
     }
 
     
-    move=(player)=>{
+    move=(player, playerData)=>{
         document.addEventListener('keydown', e=> {
             if(e.repeat) return 
               //bg.className = "animation"
             if(e.key == "ArrowRight" ) { //&& parseInt(player.style.left) < 3000
                 this.direction = 'right'
-                player.src = 'assets/right.gif'
+                player.src = playerData.rightImgUrl
             }else if(e.key == "ArrowLeft") { // && parseInt(player.style.left) > 20
-               this.direction = 'left'
-               player.src = 'assets/left.gif'
+                this.direction = 'left'
+                player.src = playerData.leftImgUrl
               //dir = 'left'
             }
           })
     }
 
-    stop=(player)=>{
+    stop=(player, playerData)=>{
         document.addEventListener('keyup', e=> {
         this.direction = null
           console.log(player.style.left)
           stop(player)
-          player.src = 'assets/static.gif'
+          player.src = playerData.staticImgUrl
           //save player position
           fetch(playerUrl, {  
                 method:"PATCH",
