@@ -1,21 +1,5 @@
 
 
-//generate canvas
-var type = "WebGL";
-if (!PIXI.utils.isWebGLSupported()) {
-    type = "canvas";
-}
-PIXI.utils.sayHello(type);
-const app = new PIXI.Application(window.innerWidth, window.innerHeight);
-document.body.appendChild(app.view);
-
-var stage = new PIXI.Container();
-app.stage.addChild(stage);
-
-// var stage = new PIXI.Container();
-// renderer.render(stage);
-
-
 // Get the texture for rope.
 const starTexture = PIXI.Texture.from('assets/star.png');
 

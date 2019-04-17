@@ -36,19 +36,19 @@ function newGame() {
     //render newform
     let person = prompt("Please enter your name", "Harry Potter");
     if (person != null) {
-        //create new textbox, style already set in css file
-        const textbox = document.createElement("div")
-        textbox.setAttribute("class", "textbox")
-        textbox.setAttribute("id", "textbox")
-        document.body.append(textbox);
-        textbox.innerHTML =
-            "<p>"+ "Hello " + person + "!" 
-            + "<p>" + "Do you want to start your magic journey?";
+
+        let newForm = document.querySelector("#new-player-form")
+        newForm.style.display = ""
+        // const textbox = document.createElement("div")
+        // textbox.setAttribute("class", "textbox")
+        // textbox.setAttribute("id", "textbox")
+        // document.body.append(textbox);
+        // textbox.innerHTML =
+        //     "<p>"+ "Hello " + person + "!" 
+        //     + "<p>" + "Do you want to start your magic journey?";
         
     }
 }
-
-
 
 
 //resume game button

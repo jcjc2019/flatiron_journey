@@ -19,17 +19,18 @@ body {
     left: 25%;
     font-family: 'Arial';
 }
-.form{
+.form#new-player-form{
     position: absolute;
     z-index: 1;
     margin: 10;
     padding: 10;
     color: #cc9900;
     text-align: left;
-    font-size: 2.2em;
+    font-size: 1.2em;
     top: 25%;
     left: 25%;
     font-family: 'Arial';
+    /* display: none; */
 }
 #bg-music {
     display: none;

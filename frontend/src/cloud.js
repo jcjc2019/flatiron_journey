@@ -1,4 +1,5 @@
-var stage = new PIXI.Container();
+
+// var stage = new PIXI.Container();
 var cloudManager;
 
 document.addEventListener("DOMContentLoaded", function(event){
