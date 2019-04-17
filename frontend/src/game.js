@@ -1,6 +1,9 @@
 const bg = document.querySelector('div')
 const playerUrl = 'http://localhost:3000/players/1'
 const bgUrl = 'http://localhost:3000/stages/1'
+const gameAudio = document.createElement('audio')
+gameAudio.src = 'assets/game_audio.mp3'
+bg.appendChild(gameAudio)
 
 //fetch stage first
 fetch(bgUrl) 
