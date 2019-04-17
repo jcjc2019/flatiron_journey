@@ -4,8 +4,9 @@ body
   padding: 0;   
 }
  
-#stage img{
-        box-sizing: content-box;
+#stage img
+{
+    box-sizing: content-box;
 
 }
 
@@ -38,7 +39,7 @@ body
 #purpleMonster
 {
     height: 150px;
-    padding-bottom: 350px;
+    padding-bottom: 200px;
     padding-left: 800px;
 }
 
@@ -62,6 +63,17 @@ body
     padding-bottom: 1000px;
     padding-left: 4800px;
     position: absolute
+}
+
+p{
+    width: 250px;
+    height: 100px;
+    border-style: solid;
+    border-radius: 25px;
+    border-color: aliceblue;
+    padding: 5px;
+    color:white;
+    overflow: scroll;
 }
 /*
 #bg.animation

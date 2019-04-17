@@ -56,7 +56,7 @@ class Player{
                        'Content-Type': 'application/json'
                          },
                 body: JSON.stringify({
-                        x: player.style.left
+                        x: window.scrollX//player.style.left// to be fixed, update the position but when refresh it goes back to beginning part
                         })          
           }) 
         })
