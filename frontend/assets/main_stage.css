@@ -4,13 +4,19 @@ body
   padding: 0;   
 }
  
+#stage img{
+        box-sizing: content-box;
+
+}
+
 #stage
 {
-    margin-top: 200px;
-    position: relative;
+    box-sizing: content-box;
+    bottom: 200px;
+    position: absolute;
     background: url(bg.jpg);
     height: 358px;
-    width: 4693px;
+    width: 6900px;
     background-position: 0 0;
     background-repeat:repeat-x; 
 }
@@ -27,6 +33,35 @@ body
     height: 250px;
     padding-left: 50px;
     position: absolute;
+}
+
+#purpleMonster
+{
+    height: 150px;
+    padding-bottom: 350px;
+    padding-left: 800px;
+}
+
+#dragon
+{
+    height: 150px;
+    padding-bottom: 500px;
+    padding-left: 1000px;
+}
+
+#redDragon
+{
+    height: 300px;
+    padding-bottom: 400px;
+    padding-left: 1400px;
+}
+
+#final
+{
+    height: 300px;
+    padding-bottom: 1000px;
+    padding-left: 4800px;
+    position: absolute
 }
 /*
 #bg.animation
