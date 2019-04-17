@@ -5,12 +5,15 @@ body {
     overflow: hidden;
 }
 #title{
-    text-align: center;
+    text-align: left;
 }
-#title:hover {
-  animation: shake 0.5s;
-  animation-iteration-count: infinite;
+#textbox{
+    text-align: center;
+    font-size: 20px;
 }
 #bg-music {
     display: none;
+}
+canvas {
+    display: block;
 }
