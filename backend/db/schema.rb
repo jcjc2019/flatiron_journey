@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2019_04_15_191340) do
 
   create_table "npcs", force: :cascade do |t|
     t.string "name"
+    t.string "imgUrl"
     t.integer "x"
     t.integer "stage_id"
     t.datetime "created_at", null: false
@@ -41,8 +42,9 @@ ActiveRecord::Schema.define(version: 2019_04_15_191340) do
 
   create_table "stages", force: :cascade do |t|
     t.string "name"
+    t.string "imgUrl"
     t.integer "player_id"
-    t.integer "x"
+    t.string "x"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["player_id"], name: "index_stages_on_player_id"
