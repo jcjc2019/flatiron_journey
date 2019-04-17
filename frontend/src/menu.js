@@ -1,3 +1,4 @@
+//Create Menu tests and actions
 //menu text
 const style = new PIXI.TextStyle({
     fontFamily: 'Arial',
@@ -13,8 +14,14 @@ const style = new PIXI.TextStyle({
     dropShadowAngle: Math.PI / 6,
     dropShadowDistance: 6,
     wordWrap: true,
-    wordWrapWidth: 440,
+    wordWrapWidth: 600,
 });
+
+
+const icon = new PIXI.Text('Your Coding Journey Starts Here...', style);
+icon.x = 50;
+icon.y = 50;
+stage.addChild(icon);
 
 const startText = new PIXI.Text('New Game', style);
 startText.x = 50;
@@ -25,7 +32,17 @@ startText.on('pointerdown', onClick);
 stage.addChild(startText);
 
 function onClick() {
-    alert("Hi Mum!"); 
+    let person = prompt("Please enter your name", "Harry Potter");
+    if (person != null) {
+        const textbox = document.createElement("div")
+        textbox.setAttribute("class", "textbox")
+        textbox.setAttribute("id", "textbox")
+        textbox.innerHTML =
+            "Hello " + person + "! How are you today?";
+        textbox.style.backgroundColor = '#cc9900';
+        document.body.append(textbox);
+        stage.addChild(textbox);
+    }
 }
 
 const resumeText = new PIXI.Text('Resume Game', style);
@@ -45,13 +62,6 @@ introText.buttonMode = true;
 introText.click = function () {
     alert("Hi Mum!");
 }
-// const gameButton = document.querySelector("#game-button");
-// gameButton.innerText = richText;
-// stage.addChild(gameButton)
 
 stage.addChild(resumeText);
 stage.addChild(introText);
-// richText.addEventListener('click', (e)=>{
-//     e.preventDefault();
-//     console.log('worked.')
-// })
