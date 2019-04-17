@@ -11,6 +11,10 @@ fetch(bgUrl)
   new Stage(stageData) //instantiate stage
   Stage.josh()
   Stage.monsterLight()
+  Stage.purpleMonster()
+  Stage.dragon()
+  Stage.redDragon()
+  Stage.final()
   //console.log(stageData.npcs) //continue here. how to instantiate npc using rails association?
 })
 
