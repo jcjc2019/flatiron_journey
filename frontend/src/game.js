@@ -1,4 +1,4 @@
-const bg = document.querySelector('#main')
+const bg = document.querySelector('div')
 const playerUrl = 'http://localhost:3000/players/1'
 const bgUrl = 'http://localhost:3000/stages/1'
 
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function(){
     conversation1.style.opacity += 0.1
   }
 
-  const firstConversationInterval = (firstConversation)
+  //const firstConversationInterval = (firstConversation)
   //firstConversation()
   //const showFirstConversation = setTimeout(conversation1, 2000)
   //showFirstConversation
