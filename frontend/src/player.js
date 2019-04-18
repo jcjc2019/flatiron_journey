@@ -37,9 +37,18 @@ class Player{
            // spaghetti code to render the dugeon
 
             if(window.scrollX < 900 && window.scrollX > 720) {
-              
+              renderDungeon()
             }
-            else if(window.scroll ) {
+            else if(window.scrollX < 1900 && window.scrollX > 1720) {
+
+            }
+            else if(window.scrollX < 3100 && window.scrollX > 2980){
+
+            }
+            else if(window.scrollX < 4425 && window.scrollX > 4200) {
+
+            }
+            else if(window.scrollX < 6200 && window.scrollX > 5900) {
 
             }
 
@@ -73,9 +82,9 @@ class Player{
               dunDiv.append(monsterOne)
               document.body.append(dunDiv)
             */
-           } // end of first stage
+            // end of first stage
 
-            if(e.repeat) return 
+            //if(e.repeat) return 
               //bg.className = "animation"
             if(e.key == "ArrowRight" ) { //&& parseInt(player.style.left) < 3000
                 this.direction = 'right'
@@ -87,7 +96,6 @@ class Player{
             }
           })
     }
-
     renderDungeon() {
       let dunDiv = document.createElement('div')
       dunDiv.id = "dungeon"
