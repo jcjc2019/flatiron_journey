@@ -7,8 +7,10 @@ class Player{
         player.style.width = '200px'
         player.style.height = '150px'
         player.style.left = window.innerWidth / 2 - 100 //playerData.x//
-        player.style.bottom = "200px"
+        player.style.top = "55%"
+        // player.style.bottom = "10%"
         player.style.position = 'fixed'
+        player.style.zIndex = 1
         //this.element = player
         bg.appendChild(player)
         this.move(player, playerData)

@@ -3,7 +3,11 @@ body
   margin: 0;
   padding: 0;   
 }
- 
+
+canvas {
+    background-color: #222222;
+    display: block;
+}
 #stage img
 {
     box-sizing: content-box;
@@ -13,6 +17,7 @@ body
 #stage
 {
     box-sizing: content-box;
+    top: 10%;
     bottom: 200px;
     position: absolute;
     background: url(bg.jpg);
@@ -20,6 +25,7 @@ body
     width: 6900px;
     background-position: 0 0;
     background-repeat:repeat-x; 
+    z-index: 1;
 }
 
 #lightMonster
