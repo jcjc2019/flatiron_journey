@@ -1,7 +1,7 @@
 
 class Player{
     constructor(playerData){
-        console.log(playerData.x)
+        //console.log(playerData.x)
         const player =  document.createElement('img')
         player.src = playerData.staticImgUrl
         player.style.width = '200px'

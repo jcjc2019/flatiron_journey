@@ -22,12 +22,6 @@ body
     background-repeat:repeat-x; 
 }
 
-#lightMonster
-{
-    padding-left: 1100px;
-    padding-bottom: 400px;
-    height: 250px;
-}
 
 #josh
 {
@@ -36,65 +30,80 @@ body
     position: absolute;
 }
 
+#lightMonster
+{
+    left: 1000px;
+    bottom: 100px;
+    height: 250px;
+    position: absolute;
+}
+
 #purpleMonster
 {
     height: 150px;
-    padding-bottom: 200px;
-    padding-left: 800px;
+    bottom: 10px;
+    left: 2200px;
+    position: absolute;
 }
 
 #dragon
 {
     height: 150px;
-    padding-bottom: 500px;
-    padding-left: 1000px;
+    bottom: 200px;
+    left: 3300px;
+    position: absolute;
 }
 
 #redDragon
 {
-    height: 300px;
-    padding-bottom: 400px;
-    padding-left: 1400px;
+    height: 250px;
+    bottom: 0px;
+    left: 4600px;
+    position: absolute;
 }
 
 #final
 {
-    height: 300px;
-    padding-bottom: 1000px;
-    padding-left: 4800px;
+    height: 250px;
+    bottom: 10px;
+    left: 6400px;
     position: absolute
 }
 
-p{
+
+.conv
+{
+  height: 50px;
+  width:70px;
+  position: relative;
+}
+
+
+
+p {
     width: 250px;
     height: 100px;
     border-style: solid;
     border-radius: 25px;
-    border-color: aliceblue;
-    padding: 5px;
-    color:white;
-    overflow: scroll;
-}
-/*
-#bg.animation
-{
-    position: relative;
-    background: url(bg.jpg);
-    height: 100vh;
-    background-size: cover;
-    background-position: 0 0;
-    background-repeat:repeat-x; 
-    animation: animate 150s linear infinite; 
+    border-color:#663300;
+    border-width: 1px;
+    padding-left: 5px;
+    opacity: 1;
+    color:#663300;
+    overflow-y: scroll;
+    position: absolute;
+    -webkit-transition: opacity 0.5s;
+    opacity: 0;
+    transition: 0.5;
+    z-index:1;
 }
 
-/*
-@keyframes animate
-{
-    from{
-        background-position: 0 0;
-    }
-    to {
-        background-position: 100% 0;
-    }
+p.show{
+    -webkit-transition: opacity 0.5s;
+    transition: 0.5;
+    opacity: 1;
 }
-*/
+
+
+
+
