@@ -1,9 +1,7 @@
-const newUserName = document.querySelector("#new-username-input")
-const newUserImg = document.querySelector("#character-image")
-const newForm = document.querySelector("#new-player-form")
+// const newUserName = document.querySelector("#new-username-input")
+// const newUserImg = document.querySelector("#character-image")
 
-const resumeForm = document.querySelector("#current-player-form")
-const oldUserName = document.querySelector("#old-username-input")
+// const oldUserName = document.querySelector("#old-username-input")
 
 const playersURL = "localhost:3000/players"
 

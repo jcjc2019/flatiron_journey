@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>A Pokemon's Coding Boot Camp Journey</title>
+    <!--Bootstrap library-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/index-scrolling.css">
+
+  </head>
+  <body>
+    <!--form actions, connect to backend server-->
+    <script src="./src/game-data.js"></script>
+
+    <div id="bg-music">
+        <audio controls autoplay loop>
+            <source src="assets/game_audio.mp3" type="audio/ogg">
+    </div>
+
+    <div class="fixed-parallax" id="parallax-container">
+
+  	<div class="image one">
+      <div class="menu" id="welcome">
+          <h1>Your Coding Journey Starts Here...
+          <p>
+          <p>
+          <button type="button" class="btn btn-lg btn-light" id = "How to Play"><a href="#instructions">How to Play</a></button>
+          <button type="button" class="btn btn-lg btn-light" id = "About"><a href="#about-game">About</a></button>
+          </h1>
+      <div>
+    </div>
+
+    <div class="content" id="about-game">
+      <h2>About this game</h2>
+      <p></p>
+      <li>This game is a module 3 final project made by Zoe, Jing, and Jack at Flatiron School.</li>
+      <li>It illustrates our coding journey at Flatiron's coding bootcamp.</li>
+      <li>Please see the project's <a href= "https://github.com/jcjc2019/flatiron_journey"> github page</a> for details.</li>
+    </div>
+
+    <div class="content" id="instructions">
+      <h2>How to Play</h2>
+      <p></p>
+      <li>Press key right to walk right.</li>
+      <li>Press key left to walk left.</li>
+      <li>You will be stopped by a monster for 5 times.</li>
+      <li>The monster is a symbol of code challenge for each module.</li>
+      <li>You can interact with the monster for a short conversation and a possible code challenge. </li>
+    </div>
+
+  	<div class="image two">
+
+      <div class="d-flex justify-content-center">
+      <div class="form-group">
+        <div class="table-responsive">
+        <table class="request text-center">
+        <tr class>
+            <td>
+            <div class="form-group">
+              <button type="button" class= "btn btn-lg btn-light"><a href="#new-game-form">New Game</a></button>
+            </div>
+            </td>
+            <td>
+            <div class="form-group">
+              <button type="button" class= "btn btn-lg btn-light"><a href="#resume-game-form">Resume Game</a></button>
+            </div>
+            </td>
+        </tr>
+        </table>
+        </div>
+      </div>
+      </div>
+
+    </div>
+
+    <div>
+      <form>
+        <div class="form-group" id="new-game-form">
+          <h2>Start your new journey</h2>
+          <p>
+          <p>
+          <label for="username">Choose a username</label>
+          <input type="username" class="form-control" id="input-username" aria-describedby="nameHelp" placeholder="Pikachu">
+          <small id="nameHelp" class="form-text text-muted">Enter a usernmae to start your game.</small>
+        </div>
+        <div class="form-group">
+          <label for="character">Choose a character</label>
+          <br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="character" id="pikachu" value="pikachu" checked>
+            <label class="form-check-label" for="pikachu">
+              <img src="assets/pikachu_static_320.gif">
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="character" id="zorua" value="zorua">
+            <label class="form-check-label" for="zorua">
+              <img src="assets/zorua_static_320.gif">
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="character" id="bulbasaur" value="bulbasaur">
+            <label class="form-check-label" for="bulbasaur">
+              <img src="assets/bulbasaur_static.gif">
+            </label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-lg btn-light" name="submit" ><a href="#game-area">Start a new game</a></button>
+      </form>
+
+    </div>
+
+  	<div class="image three">
+    </div>
+    <div>
+      <form>
+        <div class="form-group" id="resume-game-form">
+          <h2>Resume your wonderful journey</h2>
+          <p>
+          <p>
+          <label for="username">Enter your username</label>
+          <input type="username" class="form-control" id="input-username" aria-describedby="nameHelp" placeholder="Pikachu">
+          <small id="nameHelp" class="form-text text-muted">Enter a usernmae to start your game.</small>
+        </div>
+
+        <button type="submit" class="btn btn-lg btn-light" name="submit"><a href="#game-area">Resume your game</a></button>
+      </form>
+
+    </div>
+
+  	<div class="image four">
+      <div class="canvas" id ="game-area">
+        <canvas id="game-canvas"></canvas>
+      </div>
+
+    </div>
+    </div>
+    <script type="text/javascript" src="set-game-canvas.js"></script>
+  </body>
+
+</html>

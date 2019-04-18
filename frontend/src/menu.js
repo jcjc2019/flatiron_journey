@@ -19,23 +19,28 @@ const style = new PIXI.TextStyle({
 
 //slogan
 const slogan = new PIXI.Text('Your Coding Boot Camp Journey Starts Here...', style);
-slogan.x = 40;
+slogan.x = 20;
 slogan.y = 50;
 stage.addChild(slogan); 
+
+//get HTML elements
+const newForm = document.querySelector("#new-player-form")
+const resumeForm = document.querySelector("#current-player-form")
+const instructions = document.querySelector("#instructions")
+const about = document.querySelector("#about")
+const textbox = document.querySelectorAll(".textbox")
 
 //start game button
 const startText = new PIXI.Text('New Game', style);
 startText.x = 40;
-startText.y = 250;
+startText.y = 150;
 startText.interactive = true;
 startText.buttonMode = true;
 stage.addChild(startText);
 
-function newForm() {
+function displayNewGameForm() {
     //clear 2 textboxes & 1 resumeForm
-    const textbox = document.querySelectorAll(".textbox")
-    const newForm = document.querySelector("#new-player-form")
-    const resumeForm = document.querySelector("#current-player-form")
+    
     textbox.forEach(function(t){
         if (t.style.display !== "none"){
             t.style.display = "none"; 
@@ -49,22 +54,19 @@ function newForm() {
  
 }
 
-startText.on('pointerdown', newForm);
+startText.on('pointerdown', displayNewGameForm);
 
 //resume game button
 const resumeText = new PIXI.Text('Resume Game', style);
-resumeText.x = 40;
-resumeText.y = 300;
+resumeText.x = 300;
+resumeText.y = 150;
 resumeText.interactive = true;
 resumeText.buttonMode = true;
-resumeText.on('pointerdown', resumeForm);
+resumeText.on('pointerdown', displayResumeGameForm);
 stage.addChild(resumeText);
 
-function resumeForm() {
+function displayResumeGameForm() {
     //clear 2 textboxes & 1 newForm
-    const textbox = document.querySelectorAll(".textbox")
-    const newForm = document.querySelector("#new-player-form")
-    const resumeForm = document.querySelector("#current-player-form")
     textbox.forEach(function (t) {
         if (t.style.display !== "none") {
             t.style.display = "none";
@@ -88,10 +90,6 @@ stage.addChild(introText);
 
 function displayInstructions() {
     //clear form div & about textbox
-    const newForm = document.querySelector("#new-player-form")
-    const resumeForm = document.querySelector("#current-player-form")
-    const about = document.querySelector("#about")
-    const instructions = document.querySelector("#instructions")
 
     if(newForm.style.display !== "none" || about.style.display !== "none" || resumeForm.style.display !== "none"){
         newForm.style.display = "none";
@@ -112,10 +110,6 @@ aboutText.on('pointerdown', displayAbout);
 stage.addChild(aboutText);
 function displayAbout() {
     //clear form div & instructions textbox
-    const newForm = document.querySelector("#new-player-form")
-    const resumeForm = document.querySelector("#current-player-form")
-    const instructions = document.querySelector("#instructions")
-    const about = document.querySelector("#about")
 
     if (newForm.style.display !== "none" || instructions.style.display !== "none" || resumeForm.style.display !== "none" || about.style.display === "none") {
         newForm.style.display = "none";
