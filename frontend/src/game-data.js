@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     fetch(playersURL, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
         username: newName.value,
@@ -30,15 +30,21 @@ document.addEventListener("DOMContentLoaded", ()=>{
         score: 0,
         x: 20
       })
-      // .then((res) => res.json())
-      // .then((newPlayerData) => new Player(newPlayerData))
+      .then((res) => res.json())
+      .then((newPlayerData) => {
+        new Player(newPlayerData);
+      })
     })
   }
 
   //add event for form
   newGameForm.addEventListener("submit", function (e) {
     e.preventDefault();
-    createNewPlayerImg();
+    if (newName.value !== null){
+      createNewPlayerImg();
+    }else{
+      alert("Username is not valid. Please choose a unique one.")
+    }
   })
 
 })
