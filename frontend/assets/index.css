@@ -78,7 +78,7 @@ canvas {
     right:5%;
     height: 500px;
     overflow: auto;
-    display: none;
+    /* display: none; */
 
 }
 object {
