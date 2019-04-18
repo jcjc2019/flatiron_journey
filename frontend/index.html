@@ -11,8 +11,6 @@
 
   </head>
   <body>
-    <!--form actions, connect to backend server-->
-    <script src="./src/game-data.js"></script>
 
     <div id="bg-music">
         <audio controls autoplay loop>
@@ -26,10 +24,11 @@
           <h1>Your Coding Journey Starts Here...
           <p>
           <p>
-          <button type="button" class="btn btn-lg btn-light" id = "How to Play"><a href="#instructions">How to Play</a></button>
+
           <button type="button" class="btn btn-lg btn-light" id = "About"><a href="#about-game">About</a></button>
+          <button type="button" class="btn btn-lg btn-light" id = "How to Play"><a href="#instructions">How to Play</a></button>
           </h1>
-      <div>
+      </div>
     </div>
 
     <div class="content" id="about-game">
@@ -48,7 +47,9 @@
       <li>You will be stopped by a monster for 5 times.</li>
       <li>The monster is a symbol of code challenge for each module.</li>
       <li>You can interact with the monster for a short conversation and a possible code challenge. </li>
+      <p>
     </div>
+
 
   	<div class="image two">
 
@@ -75,15 +76,15 @@
 
     </div>
 
-    <div>
-      <form>
-        <div class="form-group" id="new-game-form">
+  	<div class="image three">
+      <form id="new-game-form">
+        <div class="form-group">
           <h2>Start your new journey</h2>
           <p>
           <p>
           <label for="username">Choose a username</label>
           <input type="username" class="form-control" id="input-username" aria-describedby="nameHelp" placeholder="Pikachu">
-          <small id="nameHelp" class="form-text text-muted">Enter a usernmae to start your game.</small>
+          <small id="nameHelp" class="form-text text-muted">Enter a username to start your game.</small>
         </div>
         <div class="form-group">
           <label for="character">Choose a character</label>
@@ -109,20 +110,17 @@
         </div>
         <button type="submit" class="btn btn-lg btn-light" name="submit" ><a href="#game-area">Start a new game</a></button>
       </form>
-
     </div>
 
-  	<div class="image three">
-    </div>
     <div>
-      <form>
-        <div class="form-group" id="resume-game-form">
+      <form class="content" id="resume-game-form">
+        <div class="form-group">
           <h2>Resume your wonderful journey</h2>
           <p>
           <p>
           <label for="username">Enter your username</label>
-          <input type="username" class="form-control" id="input-username" aria-describedby="nameHelp" placeholder="Pikachu">
-          <small id="nameHelp" class="form-text text-muted">Enter a usernmae to start your game.</small>
+          <input type="username" class="form-control" id="input-old-username" aria-describedby="nameHelp" placeholder="Pikachu">
+          <small id="nameHelp" class="form-text text-muted">Enter a username to start your game.</small>
         </div>
 
         <button type="submit" class="btn btn-lg btn-light" name="submit"><a href="#game-area">Resume your game</a></button>
@@ -132,12 +130,18 @@
 
   	<div class="image four">
       <div class="canvas" id ="game-area">
+        <div class="game-container">
+           <object type="text/html" data="game.html"></object>
+        </div>
         <canvas id="game-canvas"></canvas>
       </div>
 
     </div>
     </div>
-    <script type="text/javascript" src="set-game-canvas.js"></script>
+    <!--set canvas game area-->
+    <script type="text/javascript" src="./src/set-game-canvas.js"></script>
+    <!--form actions, connect to backend server-->
+    <script src="./src/game-data.js"></script>
   </body>
 
 </html>

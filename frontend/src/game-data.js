@@ -1,25 +1,37 @@
-// const newUserName = document.querySelector("#new-username-input")
-// const newUserImg = document.querySelector("#character-image")
+//variables for forms
+const newGameForm = document.querySelector("#new-game-form")
+const resumeGameForm = document.querySelector("#resume-game-form")
 
-// const oldUserName = document.querySelector("#old-username-input")
+//set up const for input value
+const newName = document.querySelector("#input-username")
+const newImg = document.querySelector("input[name=character]:checked")
 
-const playersURL = "localhost:3000/players"
+const oldName = document.querySelector("#input-old-username")
 
-//to do: update character position, not saving absolute position
-//get new user input value from form
-function getNewPlayerInput(){
+const playersURL = "http://localhost:3000/players"
 
+//1. submit new form action
+// post player information to database, create new player instance
+const createNewPlayerImg = function () {
+  //patch
+  fetch(playersURL,{
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      username: newName.value,
+      staticImgUrl: `assets/${newImg.value}_static.gif`,
+      leftImgUrl: `assets/${newImg.value}_left.gif`,
+      rightImgUrl: `assets/${newImg.value}_right.gif`,
+      score: 0,
+      x: 20
+    })
+    // .then((res) => res.json())
+    // .then((newPlayerData) => new Player(newPlayerData))
+  })
 }
-
-
-// post player information to database, create new player
-function addNewPlayer() {
-
-}
-
-//get old user info from database
-//once resume form is submitted
-function getOldPlayer(){
-    
-   
-}
+//add event listener to newGameForm
+newGameForm.addEventListener('submit', function(){
+  createNewPlayerImg()
+})

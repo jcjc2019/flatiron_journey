@@ -58,7 +58,6 @@ form{
 canvas {
   background-color: #222222;
   display: block;
-  margin: 0 auto;
 }
 
 img{
@@ -70,4 +69,20 @@ img{
 
 input{
   width: 80%!important;
+}
+
+.game-container {
+  position: absolute;
+  z-index: 2;
+  top: 5%;
+  left: 5%;
+  right: 5%;
+  overflow: auto;
+}
+
+object {
+  position: absolute;
+  z-index: 1;
+  right: 10%;
+  overflow: hidden;
 }
