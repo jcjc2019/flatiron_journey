@@ -54,7 +54,7 @@ function talkToRedDragon(redDragonConvo){
    const p = document.createElement('p')
    p.style.marginLeft = "4750px"
    p.style.top = "40px"
-   p.innerText = "Impressed! I didn't expect you can last this long. Now where are here in Mod 5, get ready for the challenge! Show me how to grab dynamic user info using React. No no, you don't hardcode it, I mean DRY. Gosh why you can't remember DRY principle...."
+   p.innerText = "Impressed! I didn't expect you can last this long. Now we are here in Mod 5, get ready for the challenge! Show me how to grab dynamic user info using React. No no, you don't hardcode it, I mean DRY. Gosh why you can't remember DRY principle...."
    bg.appendChild(p)
 
    redDragonConvo.addEventListener('click', function(){
