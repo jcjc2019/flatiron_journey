@@ -37,7 +37,7 @@ class Player{
            // spaghetti code to render the dugeon
 
             if(window.scrollX < 900 && window.scrollX > 720) {
-              renderDungeon()
+              
             }
             else if(window.scrollX < 1900 && window.scrollX > 1720) {
 

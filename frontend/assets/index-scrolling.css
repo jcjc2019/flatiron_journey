@@ -78,14 +78,14 @@ input{
   position: absolute;
   z-index: 2;
   top: 5%;
-  left: 5%;
-  right: 5%;
+  left: 1%;
+  right: 1%;
   overflow: auto;
 }
 
 object {
   position: absolute;
   z-index: 1;
-  right: 10%;
+  right: 1%;
   overflow: hidden;
 }
