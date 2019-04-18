@@ -7,8 +7,10 @@ class Player{
         player.style.width = '200px'
         player.style.height = '150px'
         player.style.left = window.innerWidth / 2 - 100 //playerData.x//
-        player.style.bottom = "200px"
+        player.style.top = "55%"
+        // player.style.bottom = "10%"
         player.style.position = 'fixed'
+        player.style.zIndex = 1
         //this.element = player
         bg.appendChild(player)
         this.move(player, playerData)
@@ -32,19 +34,41 @@ class Player{
         document.addEventListener('keydown', e=> {
            console.log(player.style.left)
            console.log(window.scrollX)
+           // spaghetti code to render the dugeon
            if(window.scrollX < 900 && window.scrollX > 720) {
               let dunDiv = document.createElement('div')
               dunDiv.id = "dungeon"
               let monsterOne = purpleMonster
-              dunDiv.style.height = '100%'
+              dunDiv.style.backgroundImage ="url('https://img.itch.zone/aW1hZ2UvMjI0OTk4LzEwNjMyOTAucG5n/original/p3QHJw.png')"
+              dunDiv.style.backgroundRepeat = "no-repeat"
+              dunDiv.style.backgroundSize = "2000px 352px"
+              dunDiv.style.opacity = 0
+              /*______MONSTER______*/
+              monsterOne.style = 'box-sizing: content-box'
+              monsterOne.style.position = 'absolute'
+              monsterOne.style.top = '150px'
+              monsterOne.style.left = '60px'
+              // dunDiv.style.left = '150px'
+              /*______DUNGEON______*/
+              dunDiv.style.top = '443px'
+              dunDiv.style.bottom = '200px'
+              dunDiv.style.height = '352px'
               dunDiv.style.width = '100%'
               dunDiv.style.position = 'fixed'
               dunDiv.append(player)
               dunDiv.append(monsterOne)
-              monsterOne.style = 'box-sizing: content-box'
-              dunDiv.style.backgroundImage ="url('https://vignette.wikia.nocookie.net/minecraft/images/1/11/Nether.png/revision/latest?cb=20120117163042')"
               document.body.append(dunDiv)
-           }
+              
+              function show() {
+                dunDiv.style.opacity = (parseFloat(dunDiv.style.opacity) + 0.3).toString()
+                console.log(dunDiv.style.opacity)
+              }
+              setInterval(show, 300)
+              
+
+           } // end of first stage
+
+
             if(e.repeat) return 
               //bg.className = "animation"
             if(e.key == "ArrowRight" ) { //&& parseInt(player.style.left) < 3000

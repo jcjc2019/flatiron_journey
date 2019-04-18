@@ -2,6 +2,12 @@ class PlayersController < ApplicationController
     def index
         render json: Player.all
     end
+
+    def create
+        # byebug
+        Player.create(player_attributes)
+    end
+    
     def show
         render json: Player.find(params[:id])
     end
