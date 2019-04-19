@@ -2,31 +2,27 @@ const gc = document.querySelector('.game-container')
 
 //first battle div created.
 let dunDiv = document.createElement('div')
+
 //first quiz div created and appended to first battle div.
+let quizContainer = document.createElement('div')
+quizContainer.className = "quiz"
+quizContainer.id = "quiz-container"
 let quiz = document.createElement('div')
-quiz.className = "quiz"
-quiz.id = "quiz-id"
-quiz.innerText = "hello"
-const submitBtn = document.createElement('button')
+quiz.setAttribute("id", "quiz-content")
+let submitBtn = document.createElement('button')
+submitBtn.setAttribute("type", "submit")
+submitBtn.setAttribute("class", "btn btn-primary")
+submitBtn.setAttribute("name", "submit")
+submitBtn.innerText = "Submit"
 const results = document.createElement('div')
 results.id = "results"
-dunDiv.appendChild(quiz)
-dunDiv.appendChild(submitBtn)
-dunDiv.appendChild(results)
+dunDiv.appendChild(quizContainer)
+quizContainer.append(quiz, submitBtn, results)
+
 
 
 //second battle div
 let secondDungeonDiv = document.createElement('div') 
-
-
-//quiz questions
-const mod1Question = [
-                       {
-                           question:"Which of the following is not a reserved word in JavaScript?",
-                           answers:{ A: "interface", B: "throws", C: "program", D: "short"},
-                           correctAnswer:"C"
-                       }
-                     ]
 
 
 //render battles functions
@@ -246,6 +242,17 @@ function battle(player){
 
 //QUIZ PART
 
+
+//mod1 quiz questions
+const mod1Question = [
+  {
+    question: "Which of the following is not a reserved word in JavaScript?",
+    answers: { A: "interface", B: "throws", C: "program", D: "short" },
+    correctAnswer: "C"
+  }
+]
+
+
 function mod1Quiz(){
   //moved the following lines to the beginning, so everything happens only once.
     // let quiz = document.createElement('div')
@@ -264,16 +271,16 @@ function mod1Quiz(){
     let answers = [] 
     for(letter in currentQuestion){
         //add radio button to each choice
-        answers.push( `<label>
-                   <input type="radio" name="question${questionNumber}" value="${letter}">
-                   ${letter} :
-                   ${currentQuestion.answers[letter]}
+        //this part to be fixed.
+        answers.push( `<p><label>
+                   <input type="radio" name="question${questionNumber}" value="${letter}"> 
+                   ${letter} : ${currentQuestion.answers[letter]} 
                   </label>`)
                   //console.log(currentQuestion)
        }
    
-    output.push(`<div class="question"> ${currentQuestion.question} </div>
-                 <div class="answers"> ${answers.join("")} </div>`)                
+    output.push(`<p><div class="question"> <li>${currentQuestion.question} </li></div>
+                 <p><div class="answers">  ${answers.join("")} </div>`)                
                    
    })
    quiz.innerHTML = output.join("") 
