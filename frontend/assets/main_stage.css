@@ -110,6 +110,13 @@ p.show{
     opacity: 1;
 }
 
+.quiz
+{
+    position: absolute;
+    left:700px;
+    z-index: 1;
+}
+
 
 
 

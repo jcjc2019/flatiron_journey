@@ -1,25 +1,39 @@
+const dunDiv = document.createElement('div')
+const mod1Question = [
+                       {
+                           question:"Which of the following is not a reserved word in JavaScript?",
+                           answers:{ A: "interface", B: "throws", C: "program", D: "short"},
+                           correctAnswer:"C"
+                       }
+                     ]
 
 function battle(player){
+    
   // spaghetti code to render the dugeon
-  if(window.scrollX < 900 && window.scrollX > 660) {
-              firstBattle(player)
+  if(window.scrollX == 760/*< 900 && window.scrollX > 660 */) {
+          
+    firstBattle(player)
          }
    else if(window.scrollX < 1900 && window.scrollX > 1680) {
-              secondBattle(player)
+        
+    secondBattle(player)
           }
    else if(window.scrollX < 3100 && window.scrollX > 2980){
-              thirdBattle(player)
+          
+    thirdBattle(player)
           }
    else if(window.scrollX < 4425 && window.scrollX > 4200) {
-             fourthBattle(player)
+   
+    fourthBattle(player)
           }
    else if(window.scrollX < 6200 && window.scrollX > 5500) {
-            fifthBattle(player)
+    
+    fifthBattle(player)
           }   
     }
 
   function firstBattle(player){
-    let dunDiv = document.createElement('div')
+    //let dunDiv = document.createElement('div')
     dunDiv.id = "dungeon"
     dunDiv.style.position = "absolute"
     dunDiv.style.top = "0px"
@@ -46,10 +60,12 @@ function battle(player){
     
     function show() {
         dunDiv.style.opacity = (parseFloat(dunDiv.style.opacity) + 0.3).toString()
-      //console.log(dunDiv.style.opacity)
+        //console.log(dunDiv.style.opacity)
+        
     }
-
+    
     setInterval(show, 300)
+    mod1Quiz()// call quiz function
 }
 
 
@@ -57,16 +73,16 @@ function battle(player){
 
 
   function secondBattle(player){
-    let secondDundeonDiv = document.createElement('div')
-    //secondDundeonDiv.id = "second_dungeon"
-    secondDundeonDiv.style.position = "absolute"
-    secondDundeonDiv.style.top = "0px"
-    secondDundeonDiv.style.zIndex = 1
+    //const secondDungeonDiv = document.createElement('div') made is gloabal on top for quiz form
+
+    secondDungeonDiv.style.position = "absolute"
+    secondDungeonDiv.style.top = "0px"
+    secondDungeonDiv.style.zIndex = 1
     let monsterTwo = purpleMonster
-    secondDundeonDiv.style.backgroundImage ="url('https://img.itch.zone/aW1hZ2UvMjI0OTk4LzEwNjMyOTAucG5n/original/p3QHJw.png')"
-    secondDundeonDiv.style.backgroundRepeat = "no-repeat"
-    secondDundeonDiv.style.backgroundSize = "2000px 372px"
-    secondDundeonDiv.style.opacity = 0
+    secondDungeonDiv.style.backgroundImage ="url('https://img.itch.zone/aW1hZ2UvMjI0OTk4LzEwNjMyOTAucG5n/original/p3QHJw.png')"
+    secondDungeonDiv.style.backgroundRepeat = "no-repeat"
+    secondDungeonDiv.style.backgroundSize = "2000px 372px"
+    secondDungeonDiv.style.opacity = 0
     /*______MONSTER______*/
     purpleMonster.style = 'box-sizing: content-box'
     purpleMonster.style.position = 'absolute'
@@ -74,25 +90,26 @@ function battle(player){
     purpleMonster.style.left = '60px'
     // dunDiv.style.left = '150px'
     /*______DUNGEON______*/
-    secondDundeonDiv.style.bottom = '180px'
-    secondDundeonDiv.style.height = '100%'
-    secondDundeonDiv.style.width = '100%'
-    secondDundeonDiv.style.position = 'fixed'
-    secondDundeonDiv.append(player)
-    secondDundeonDiv.append(purpleMonster)
-    document.body.append(secondDundeonDiv)
-    
+    secondDungeonDiv.style.bottom = '180px'
+    secondDungeonDiv.style.height = '100%'
+    secondDungeonDiv.style.width = '100%'
+    secondDungeonDiv.style.position = 'fixed'
+    secondDungeonDiv.append(player)
+    secondDungeonDiv.append(purpleMonster)
+    document.body.append(secondDungeonDiv)
     function show() {
-        secondDundeonDiv.style.opacity = (parseFloat(secondDundeonDiv.style.opacity) + 0.3).toString()
+        secondDungeonDiv.style.opacity = (parseFloat(secondDungeonDiv.style.opacity) + 0.3).toString()
       //console.log(dunDiv.style.opacity)
     }
 
     setInterval(show, 300)
+   //call quiz
+   //buildQuiz()
   }
 
 
  
-function thirdBattle(player){
+  function thirdBattle(player){
     let thirdDungeonDiv = document.createElement('div')
     thirdDungeonDiv.id = "dungeon"
     thirdDungeonDiv.style.position = "absolute"
@@ -128,7 +145,7 @@ function thirdBattle(player){
 
 
 
-function fourthBattle(player){
+  function fourthBattle(player){
     let fourthDungeonDiv = document.createElement('div')
     fourthDungeonDiv.id = "dungeon"
     fourthDungeonDiv.style.position = "absolute"
@@ -165,7 +182,7 @@ function fourthBattle(player){
 
 
 
-function fifthBattle(player){
+  function fifthBattle(player){
     let fifthDungeonDiv = document.createElement('div')
     fifthDungeonDiv.id = "dungeon"
     fifthDungeonDiv.style.position = "absolute"
@@ -199,9 +216,47 @@ function fifthBattle(player){
     setInterval(show, 300)
 }
 
-/*
+
 //QUIZ PART
 
+//create elements
+function mod1Quiz(){
+    const quiz = document.createElement('div')
+    quiz.className = "quiz"
+    quiz.id = "id"
+    quiz.innerText = "hello"
+    const submitBtn = document.createElement('button')
+    const results = document.createElement('div')
+    results.id = "results"
+    dunDiv.appendChild(quiz)
+    dunDiv.appendChild(submitBtn)
+    dunDiv.appendChild(results)
+    
+   const output = []
+   mod1Question.forEach((currentQuestion, questionNumber)=>{
+    const answers = [] 
+    for(letter in currentQuestion){
+        //add radio button to each choice
+        answers.push( `<label>
+                   <input type="radio" name="question${questionNumber}" value="${letter}">
+                   ${letter} :
+                   ${currentQuestion.answers[letter]}
+                  </label>`)
+                  //console.log(currentQuestion)
+       }
+   
+    output.push(`<div class="question"> ${currentQuestion.question} </div>
+                 <div class="answers"> ${answers.join("")} </div>`)
+                   
+   })
+   quiz.innerHTML = output.join("") 
+
+}
+
+
+
+
+/*
 const dunDiv = document.querySelector("#dungeon")
 const quizContainer = document.createElement('div')
 quizContainer.setAttribute("id", "quiz")

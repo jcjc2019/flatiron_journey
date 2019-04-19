@@ -24,7 +24,7 @@ class Player{
             if(this.direction == 'right'){
               let left = parseInt(bg.style.left)
               bg.style.left = `${left - 0.1}px`
-              console.log(window.scrollX)
+              //console.log(window.scrollX)
             } 
           }, 1000)
     }
@@ -32,8 +32,8 @@ class Player{
     
     move=(player, playerData)=>{
         document.addEventListener('keydown', e=> {
-           console.log(player.style.left)
-           console.log(window.scrollX)
+           //console.log(player.style.left)
+           //console.log(window.scrollX)
            battle(player)
             if(e.key == "ArrowRight" ) { //&& parseInt(player.style.left) < 3000
                 this.direction = 'right'
@@ -74,7 +74,7 @@ class Player{
     stop=(player, playerData)=>{
         document.addEventListener('keyup', e=> {
         this.direction = null
-          console.log(player.style.left)
+          //console.log(player.style.left)
           stop(player)
           player.src = playerData.staticImgUrl
           //save player position
