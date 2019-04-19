@@ -195,7 +195,6 @@ function battle(player){
 //QUIZ PART
 
 function mod1Quiz(){
-
   //display form
   let quizContainer = document.createElement('div')
   quizContainer.className = "quiz1"
@@ -211,6 +210,37 @@ function mod1Quiz(){
   results.id = "results"
   dunDiv.appendChild(quizContainer)
   quizContainer.append(quiz, submitBtn, results)
+
+  //add event listener to 1st submit button
+  submitBtn.addEventListener('click', () => {
+    // //display results
+    // let player_answer = document.querySelector('input[name="question0"]:checked')
+    // //compare to correct answer. only 1 question in array.
+    // if (player_answer.value = mod1Question[0]["correctAnswer"]) {
+    //   //send score to database
+    //   player.score = player.score + 10
+    //   fetch(playerUrl, {
+    //     method: "PATCH",
+    //     headers: {
+    //       'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify({
+    //       score: player.score
+    //     })
+    //   })
+        // .then((res) => res.json())
+        // .then(updatedPlayerData =>
+        //   document.querySelector("#results").innerHTML = `<p>Correct! <br> Your current score is ${updatedPlayerData.score} points.`
+        // )    
+    // };
+
+    function disappear() {
+      dunDiv.style.opacity = (parseFloat(dunDiv.style.opacity) - 0.3).toString()
+      if (dunDiv.style.opacity < 0) clearInterval(opacityInterval)
+      gc.style.overflowX = 'auto'; //enable player to move again
+    }
+    let opacityInterval = setInterval(disappear, 300)
+  })
 
 //fetch the question  
    let output = []
@@ -233,14 +263,12 @@ function mod1Quiz(){
    })
    quiz.innerHTML = output.join("") 
 
-
-   
 }
 
 
 
 function mod2Quiz(){
-
+  
   //display form
   let quizContainer = document.createElement('div')
   quizContainer.className = "quiz2"
@@ -277,9 +305,6 @@ function mod2Quiz(){
   quiz.innerHTML = output.join("") 
   //console.log(quizContainer)
 }
-
-
-
 
 
 
