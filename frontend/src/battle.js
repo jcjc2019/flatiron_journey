@@ -1,7 +1,25 @@
 const gc = document.querySelector('.game-container')
-const dunDiv = document.createElement('div')
-const secondDungeonDiv = document.createElement('div') 
 
+//first battle div created.
+let dunDiv = document.createElement('div')
+//first quiz div created and appended to first battle div.
+let quiz = document.createElement('div')
+quiz.className = "quiz"
+quiz.id = "quiz-id"
+quiz.innerText = "hello"
+const submitBtn = document.createElement('button')
+const results = document.createElement('div')
+results.id = "results"
+dunDiv.appendChild(quiz)
+dunDiv.appendChild(submitBtn)
+dunDiv.appendChild(results)
+
+
+//second battle div
+let secondDungeonDiv = document.createElement('div') 
+
+
+//quiz questions
 const mod1Question = [
                        {
                            question:"Which of the following is not a reserved word in JavaScript?",
@@ -10,13 +28,16 @@ const mod1Question = [
                        }
                      ]
 
+
+//render battles functions
 function battle(player){
     
   // spaghetti code to render the dugeon
   //1st position to be fixed.
-  if(gc.scrollLeft < 800 && gc.scrollLeft > 500) {
+  if(gc.scrollLeft < 810 && gc.scrollLeft > 500) {
           
     firstBattle(player)
+    mod1Quiz() //call quiz function.
          }
    else if(gc.scrollLeft < 1727 && gc.scrollLeft > 1647) {
         
@@ -59,11 +80,11 @@ function battle(player){
     // dunDiv.style.height = '100%'
     dunDiv.style.width = '1000%'
     // dunDiv.style.left = '880px';
-    // dunDiv
-    //dunDiv
     //dunDiv.append(monsterOne)
     gc.append(dunDiv)
-    
+
+    let opacityInterval = setInterval(show, 300)
+
     function show() {
         gc.style.overflowX = 'hidden'
         dunDiv.style.opacity = (parseFloat(dunDiv.style.opacity) + 0.3).toString()
@@ -71,16 +92,12 @@ function battle(player){
         if(dunDiv.style.opacity >= 1) clearInterval(opacityInterval)
     }
     
-    let opacityInterval = setInterval(show, 300)
-    mod1Quiz()// call quiz function
+    // mod1Quiz()// call quiz function
 }
 
 
-
-
-
   function secondBattle(player){
-    //const secondDungeonDiv = document.createElement('div') made is gloabal on top for quiz form
+    //const secondDungeonDiv = document.createElement('div') made it gloabal on top for quiz form
 
     secondDungeonDiv.style.position = "absolute"
     secondDungeonDiv.style.top = "0px"
@@ -116,7 +133,6 @@ function battle(player){
    //call quiz
    //buildQuiz()
   }
-
 
  
   function thirdBattle(player){
@@ -155,10 +171,6 @@ function battle(player){
     let opacityInterval = setInterval(show, 300)
 }
 
-
-    const quizContainer = document.createElement('div')
-    quizContainer.setAttribute("id", "quiz")
-
   function fourthBattle(player){
     let fourthDungeonDiv = document.createElement('div')
     fourthDungeonDiv.id = "dungeon"
@@ -194,12 +206,6 @@ function battle(player){
 
     let opacityInterval = setInterval(show, 300)
 }
-
-
-
-    const resultsContainer = document.createElement('div')
-    resultsContainer.setAttribute('id', 'results')
-    // dunDiv.append(quizContainer, submitButton, resultsContainer)
 
   function fifthBattle(player){
     let fifthDungeonDiv = document.createElement('div')
@@ -240,22 +246,22 @@ function battle(player){
 
 //QUIZ PART
 
-//create elements
 function mod1Quiz(){
-    const quiz = document.createElement('div')
-    quiz.className = "quiz"
-    quiz.id = "id"
-    quiz.innerText = "hello"
-    const submitBtn = document.createElement('button')
-    const results = document.createElement('div')
-    results.id = "results"
-    dunDiv.appendChild(quiz)
-    dunDiv.appendChild(submitBtn)
-    dunDiv.appendChild(results)
-    
-   const output = []
+  //moved the following lines to the beginning, so everything happens only once.
+    // let quiz = document.createElement('div')
+    // quiz.className = "quiz"
+    // quiz.id = "quiz-id"
+    // quiz.innerText = "hello"
+    // const submitBtn = document.createElement('button')
+    // const results = document.createElement('div')
+    // results.id = "results"
+    // dunDiv.appendChild(quiz)
+    // dunDiv.appendChild(submitBtn)
+    // dunDiv.appendChild(results)
+  
+   let output = []
    mod1Question.forEach((currentQuestion, questionNumber)=>{
-    const answers = [] 
+    let answers = [] 
     for(letter in currentQuestion){
         //add radio button to each choice
         answers.push( `<label>
@@ -267,7 +273,7 @@ function mod1Quiz(){
        }
    
     output.push(`<div class="question"> ${currentQuestion.question} </div>
-                 <div class="answers"> ${answers.join("")} </div>`)
+                 <div class="answers"> ${answers.join("")} </div>`)                
                    
    })
    quiz.innerHTML = output.join("") 
@@ -275,32 +281,7 @@ function mod1Quiz(){
 }
 
 
-
-
-/*
-const dunDiv = document.querySelector("#dungeon")
-const quizContainer = document.createElement('div')
-quizContainer.setAttribute("id", "quiz")
-
-const submitButton = document.createElement('button')
-submitButton.setAttribute('id', 'submit')
-
-const resultsContainer = document.createElement('div')
-resultsContainer.setAttribute('id', 'results')
-//dunDiv.append(quizContainer, submitButton, resultsContainer)
-
-//MAKE QUIZ, SHOW QUIZ, CALCULATE RESULTS
-const mod1Question = [
-  {
-    question: "",
-    answers: {
-      a: "",
-      b: "",
-      c: ""
-    },
-    correctAnswer: ""
-  }
-]
+//below to be completed 
 
 const mod2Question = [
   {
@@ -349,20 +330,3 @@ const mod5Question = [
     correctAnswer: ""
   }
 ]
-
-function buildQuiz() {
-  const output = [];
-  mod1Question.forEach((currentQuestion, questionnumber) => {
-    const answers = [];
-  })
-}
-
-function showResults() { }
-
-// display quiz right away
-buildQuiz();
-
-// on submit, show results
-submitButton.addEventListener('click', showResults);
-
-*/

@@ -7,7 +7,7 @@ class Player{
         player.id = "player"
         player.style.width = '200px'
         player.style.height = '150px'
-        player.style.left = window.innerWidth / 2 - 100 //playerData.x//
+        player.style.left = document.querySelector('.game-container').scrollLeft //playerData.x//
         player.style.top = "32%"
         player.style.left = "40%"
         // player.style.bottom = "10%"
@@ -46,31 +46,6 @@ class Player{
             }
           })
     }
-    // renderDungeon() {
-    //   let dunDiv = document.createElement('div')
-    //   dunDiv.id = "dungeon"
-    //   let monsterOne = purpleMonster
-    //   dunDiv.style.backgroundImage ="url('https://img.itch.zone/aW1hZ2UvMjI0OTk4LzEwNjMyOTAucG5n/original/p3QHJw.png')"
-    //   dunDiv.style.backgroundRepeat = "no-repeat"
-    //   dunDiv.style.backgroundSize = "2000px 352px"
-    //   dunDiv.style.opacity = 0
-    //   /*______MONSTER______*/
-    //   monsterOne.style = 'box-sizing: content-box'
-    //   monsterOne.style.position = 'absolute'
-    //   monsterOne.style.top = '150px'
-    //   monsterOne.style.left = '60px'
-    //   // dunDiv.style.left = '150px'
-    //   /*______DUNGEON______*/
-    //   dunDiv.style.top = '443px'
-    //   dunDiv.style.bottom = '200px'
-    //   dunDiv.style.height = '352px'
-    //   dunDiv.style.width = '100%'
-    //   dunDiv.style.position = 'fixed'
-    //   dunDiv.append(player)
-    //   dunDiv.append(monsterOne)
-    //   document.body.append(dunDiv)
-    // }
-
 
     stop=(player, playerData)=>{
         document.addEventListener('keyup', e=> {
@@ -78,13 +53,15 @@ class Player{
           player.src = playerData.staticImgUrl
           //save player position
           fetch(playerUrl, {  
-                method:"PATCH",
-                headers: {
-                       'Content-Type': 'application/json'
-                         },
-                body: JSON.stringify({
-                        x: document.querySelector('.game-container').scrollLeft//player.style.left// to be fixed, update the position but when refresh it goes back to beginning part
-                        })          
+            method:"PATCH",
+            headers: {
+              'Content-Type': 'application/json'
+              },
+            body: JSON.stringify({
+              x: document.querySelector('.game-container').scrollLeft 
+              //to be fixed, update the position but when refresh it goes back to beginning part. 
+              //can't stay in database.
+            })          
           }) 
         })
     }
