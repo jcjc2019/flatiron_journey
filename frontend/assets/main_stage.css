@@ -106,11 +106,12 @@ body
 .quiz
 {
     position: absolute;
+    border-radius: 25px;
     margin: 0 auto;
     top: 10%;
     left: 850px;
     z-index: 2;
-    background-color: rgba(240, 130, 20, 0.75);
+    background-color:gray;
     border: 10;
 }
 

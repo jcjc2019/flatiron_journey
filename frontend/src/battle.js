@@ -30,7 +30,7 @@ function battle(player){
     
   // spaghetti code to render the dugeon
   //1st position to be fixed.
-  if(gc.scrollLeft < 810 && gc.scrollLeft > 500) {
+  if(gc.scrollLeft == 600 /*< 810 && gc.scrollLeft > 500*/) {
           
     firstBattle(player)
     mod1Quiz() //call quiz function.
@@ -246,9 +246,9 @@ function battle(player){
 //mod1 quiz questions
 const mod1Question = [
   {
-    question: "Which of the following is not a reserved word in JavaScript?",
-    answers: { A: "interface", B: "throws", C: "program", D: "short" },
-    correctAnswer: "C"
+    question: "You want the variable pronto to be set to the current date and time. With Ruby, which of the following will accomplish this? ",
+    answers: { A: "pronto = Today.now", B: "pronto = DateTime.now", C: "pronto = Now.DateTime", D: "pronto = now" },
+    correctAnswer: "B"
   }
 ]
 
@@ -273,13 +273,13 @@ function mod1Quiz(){
         //add radio button to each choice
         //this part to be fixed.
         answers.push( `<p><label>
-                   <input type="radio" name="question${questionNumber}" value="${letter}"> 
-                   ${letter} : ${currentQuestion.answers[letter]} 
+                   <input type="radio" name="question${questionNumber.answers}" value="${letter}"> 
+                   ${letter} : //${currentQuestion.answers[letter]} 
                   </label>`)
                   //console.log(currentQuestion)
        }
    
-    output.push(`<p><div class="question"> <li>${currentQuestion.question} </li></div>
+    output.push(`<p><div class="question"> <li>${currentQuestion} </li></div>
                  <p><div class="answers">  ${answers.join("")} </div>`)                
                    
    })
@@ -304,13 +304,9 @@ const mod2Question = [
 
 const mod3Question = [
   {
-    question: "",
-    answers: {
-      a: "",
-      b: "",
-      c: ""
-    },
-    correctAnswer: ""
+    question: "Which of the following is not a reserved word in JavaScript?",
+    answers: { A: "interface", B: "throws", C: "program", D: "short" },
+    correctAnswer: "C"
   }
 ]
 
