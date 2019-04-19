@@ -1,7 +1,7 @@
 
 class Player{
     constructor(playerData){
-        //console.log(playerData.x)
+        // console.log(playerData)
         const player =  document.createElement('img')
         player.src = playerData.staticImgUrl
         player.style.width = '200px'
@@ -11,8 +11,11 @@ class Player{
         // player.style.bottom = "10%"
         player.style.position = 'fixed'
         player.style.zIndex = 1
+
+        // player.style.display = "none"
         //this.element = player
-        bg.appendChild(player)
+        document.querySelector('div').appendChild(player)
+        
         this.move(player, playerData)
         this.stop(player, playerData)
         setInterval(() => {
