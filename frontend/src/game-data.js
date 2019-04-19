@@ -34,10 +34,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
           })
         })
           .then(response=> response.json())
-          .then(newPlayerData => 
-            // console.log(newPlayerData)
-            new Player(newPlayerData)
-            )
+          .then(newPlayerData => {
+            if (document.querySelector("#player")){
+              document.querySelector("#player").remove();
+              new Player(newPlayerData)
+            }
+          })
       //NEED REFACTOR TO MAKE THIS LINE WORK
     // } else {
     //   alert("Username is not valid. Please choose a unique one.")
@@ -49,9 +51,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
       oldName.value;
       fetch(`${playersURL}/${oldName.value}`)
         .then(response => response.json())
-        .then(oldPlayerData => new Player(oldPlayerData))
-      //use js to select the background (object) that you want
-      //append the new player to the background.
+        .then(oldPlayerData => {
+          document.querySelector("#player").remove();
+          new Player(oldPlayerData)
+        })
       window.location.href = "#game-area";
   })
 

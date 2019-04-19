@@ -13,7 +13,8 @@ const mod1Question = [
 function battle(player){
     
   // spaghetti code to render the dugeon
-  if(gc.scrollLeft == 760/*< 900 && gc.scrollLeft > 660 */) {
+  //1st position to be fixed.
+  if(gc.scrollLeft < 800 && gc.scrollLeft > 500) {
           
     firstBattle(player)
          }
@@ -29,7 +30,7 @@ function battle(player){
    
     fourthBattle(player)
           }
-   else if(gc.scrollLeft < 5200 && gc.scrollLeft > 5000) {
+   else if(gc.scrollLeft < 5500 && gc.scrollLeft > 4900) {
     
     fifthBattle(player)
           }   
@@ -40,24 +41,24 @@ function battle(player){
     dunDiv.id = "dungeon"
     dunDiv.style.position = "absolute"
     dunDiv.style.top = "0px"
-    dunDiv.style.zIndex = 2
+    dunDiv.style.zIndex = 1
     let monsterOne = lightMonster
-    dunDiv.style.backgroundImage = "url('https://cdnb.artstation.com/p/assets/images/images/007/686/695/large/gary-strode-pokemon-edge.jpg?1507841476')"
-    dunDiv.style.backgroundRepeat = "no-repeat"
-    dunDiv.style.backgroundSize = "2000px 352px"
+    dunDiv.style.backgroundImage = "url('https://i.ytimg.com/vi/kk9V3ZVNlyU/maxresdefault.jpg')"
+    dunDiv.style.backgroundRepeat = "repeat-x"
+    // dunDiv.style.backgroundSize = "2000px 352px"
     dunDiv.style.opacity = 0
     /*______MONSTER______*/
-    monsterOne.style = 'box-sizing: content-box'
-    monsterOne.style.position = 'absolute'
-    monsterOne.style.top = '150px'
-    monsterOne.style.left = '60px'
+    // monsterOne.style = 'box-sizing: content-box'
+    // monsterOne.style.position = 'absolute'
+    // monsterOne.style.top = '150px'
+    // monsterOne.style.left = '60px'
     monsterOne.style.zIndex ="2"
     // dunDiv.style.left = '150px'
     /*______DUNGEON______*/
-    dunDiv.style.bottom = '180px'
-    dunDiv.style.height = '355px'
-    dunDiv.style.width = '100%'
-    dunDiv.style.left = '880px';
+    dunDiv.style.bottom = '170px'
+    // dunDiv.style.height = '100%'
+    dunDiv.style.width = '1000%'
+    // dunDiv.style.left = '880px';
     // dunDiv
     //dunDiv
     //dunDiv.append(monsterOne)
@@ -97,7 +98,7 @@ function battle(player){
     // purpleMonster.style.left = '60px'
     // dunDiv.style.left = '150px'
     /*______DUNGEON______*/
-    secondDungeonDiv.style.bottom = '180px'
+    secondDungeonDiv.style.bottom = '170px'
     // secondDungeonDiv.style.height = '100%'
     secondDungeonDiv.style.width = '1000%'
     // secondDungeonDiv.style.left = "2075px"
@@ -137,7 +138,7 @@ function battle(player){
     //monsterthree.style.left = '60px'
     // dunDiv.style.left = '150px'
     /*______DUNGEON______*/
-    thirdDungeonDiv.style.bottom = '130px'
+    thirdDungeonDiv.style.bottom = '170px'
     //thirdDungeonDiv.style.height = '355px'
     thirdDungeonDiv.style.width = '1000%'
     //thirdDungeonDiv
@@ -177,8 +178,8 @@ function battle(player){
     //monsterFour.style.left = '60px'
     // dunDiv.style.left = '150px'
     /*______DUNGEON______*/
-    fourthDungeonDiv.style.bottom = '180px'
-    fourthDungeonDiv.style.height = '355px'
+    fourthDungeonDiv.style.bottom = '170px'
+    // fourthDungeonDiv.style.height = '100%'
     fourthDungeonDiv.style.width = '1000%'
     //fourthDungeonDiv
     //fourthDungeonDiv
@@ -198,7 +199,7 @@ function battle(player){
 
     const resultsContainer = document.createElement('div')
     resultsContainer.setAttribute('id', 'results')
-    dunDiv.append(quizContainer, submitButton, resultsContainer)
+    // dunDiv.append(quizContainer, submitButton, resultsContainer)
 
   function fifthBattle(player){
     let fifthDungeonDiv = document.createElement('div')
@@ -219,8 +220,8 @@ function battle(player){
     //monsterFive.style.left = '60px'
     // dunDiv.style.left = '150px'
     /*______DUNGEON______*/
-    fifthDungeonDiv.style.bottom = '180px'
-    //fifthDungeonDiv.style.height = '355px'
+    fifthDungeonDiv.style.bottom = '170px'
+    // fifthDungeonDiv.style.height = '100%'
     fifthDungeonDiv.style.width = '1000%'
     //fifthDungeonDiv
     //fifthDungeonDiv
