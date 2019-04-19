@@ -71,8 +71,9 @@ canvas {
 #final
 {
     height: 250px;
+    width: 200px;
     bottom: 10px;
-    left: 6400px;
+    left: 6100px;
     position: absolute
 }
 
@@ -108,6 +109,13 @@ p.show{
     -webkit-transition: opacity 0.5s;
     transition: 0.5;
     opacity: 1;
+}
+
+.quiz
+{
+    position: absolute;
+    left:700px;
+    z-index: 1;
 }
 
 

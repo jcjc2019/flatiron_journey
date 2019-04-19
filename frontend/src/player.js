@@ -28,7 +28,7 @@ class Player{
             if(this.direction == 'right'){
               let left = parseInt(bg.style.left)
               bg.style.left = `${left - 0.1}px`
-              console.log(window.scrollX)
+              //console.log(window.scrollX)
             } 
           }, 1000)
     }
@@ -77,7 +77,7 @@ class Player{
     stop=(player, playerData)=>{
         document.addEventListener('keyup', e=> {
         this.direction = null
-          console.log(player.style.left)
+          //console.log(player.style.left)
           stop(player)
           player.src = playerData.staticImgUrl
           //save player position
