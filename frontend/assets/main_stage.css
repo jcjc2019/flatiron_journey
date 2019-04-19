@@ -103,17 +103,33 @@ body
     opacity: 1;
 }
 
-.quiz
+.quiz1
 {
     position: absolute;
     border-radius: 25px;
     margin: 0 auto;
-    top: 10%;
-    left: 850px;
+    left: 950px;
     z-index: 2;
-    background-color:gray;
+    background-color:transparent;
     border: 10;
+    color: white;
+   
+    font-size: 0.8em;
 }
+
+.quiz2
+{
+    position: absolute;
+    border-radius: 25px;
+    margin: 0 auto;
+    left: 1850px;
+    z-index: 2;
+    background-color:transparent;
+    border: 10;
+    color: white;
+    font-size: 0.8em;
+}
+
 
 
 

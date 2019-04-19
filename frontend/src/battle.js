@@ -1,40 +1,19 @@
 const gc = document.querySelector('.game-container')
 
 //first battle div created.
-let dunDiv = document.createElement('div')
-
-//first quiz div created and appended to first battle div.
-let quizContainer = document.createElement('div')
-quizContainer.className = "quiz"
-quizContainer.id = "quiz-container"
-let quiz = document.createElement('div')
-quiz.setAttribute("id", "quiz-content")
-let submitBtn = document.createElement('button')
-submitBtn.setAttribute("type", "submit")
-submitBtn.setAttribute("class", "btn btn-primary")
-submitBtn.setAttribute("name", "submit")
-submitBtn.innerText = "Submit"
-const results = document.createElement('div')
-results.id = "results"
-dunDiv.appendChild(quizContainer)
-quizContainer.append(quiz, submitBtn, results)
+const dunDiv = document.createElement('div')
+const secondDungeonDiv = document.createElement('div') 
 
 
-
-//second battle div
-let secondDungeonDiv = document.createElement('div') 
 
 
 //render battles functions
 function battle(player){
-    
-  // spaghetti code to render the dugeon
-  //1st position to be fixed.
-  if(gc.scrollLeft == 600 /*< 810 && gc.scrollLeft > 500*/) {
+
+  if(gc.scrollLeft < 550 && gc.scrollLeft > 500 ) {
           
     firstBattle(player)
-    mod1Quiz() //call quiz function.
-         }
+          }
    else if(gc.scrollLeft < 1727 && gc.scrollLeft > 1647) {
         
     secondBattle(player)
@@ -62,21 +41,10 @@ function battle(player){
     let monsterOne = lightMonster
     dunDiv.style.backgroundImage = "url('https://i.ytimg.com/vi/kk9V3ZVNlyU/maxresdefault.jpg')"
     dunDiv.style.backgroundRepeat = "repeat-x"
-    // dunDiv.style.backgroundSize = "2000px 352px"
     dunDiv.style.opacity = 0
-    /*______MONSTER______*/
-    // monsterOne.style = 'box-sizing: content-box'
-    // monsterOne.style.position = 'absolute'
-    // monsterOne.style.top = '150px'
-    // monsterOne.style.left = '60px'
     monsterOne.style.zIndex ="2"
-    // dunDiv.style.left = '150px'
-    /*______DUNGEON______*/
     dunDiv.style.bottom = '170px'
-    // dunDiv.style.height = '100%'
     dunDiv.style.width = '1000%'
-    // dunDiv.style.left = '880px';
-    //dunDiv.append(monsterOne)
     gc.append(dunDiv)
 
     let opacityInterval = setInterval(show, 300)
@@ -84,17 +52,14 @@ function battle(player){
     function show() {
         gc.style.overflowX = 'hidden'
         dunDiv.style.opacity = (parseFloat(dunDiv.style.opacity) + 0.3).toString()
-        //console.log(dunDiv.style.opacity)
         if(dunDiv.style.opacity >= 1) clearInterval(opacityInterval)
     }
     
-    // mod1Quiz()// call quiz function
+    mod1Quiz()// call quiz function
 }
 
 
   function secondBattle(player){
-    //const secondDungeonDiv = document.createElement('div') made it gloabal on top for quiz form
-
     secondDungeonDiv.style.position = "absolute"
     secondDungeonDiv.style.top = "0px"
     secondDungeonDiv.style.zIndex = 1
@@ -102,22 +67,9 @@ function battle(player){
     monsterTwo.style.zIndex ="2"
     secondDungeonDiv.style.backgroundImage ="url('https://img.itch.zone/aW1hZ2UvMjI0OTk4LzEwNjMyOTAucG5n/original/p3QHJw.png')"
     secondDungeonDiv.style.backgroundRepeat = "repeat-x"
-    // secondDungeonDiv.style.backgroundSize = "2000px 372px"
     secondDungeonDiv.style.opacity = 0
-    /*______MONSTER______*/
-    // purpleMonster.style = 'box-sizing: content-box'
-    // purpleMonster.style.position = 'absolute'
-    // purpleMonster.style.top = '150px'
-    // purpleMonster.style.left = '60px'
-    // dunDiv.style.left = '150px'
-    /*______DUNGEON______*/
     secondDungeonDiv.style.bottom = '170px'
-    // secondDungeonDiv.style.height = '100%'
     secondDungeonDiv.style.width = '1000%'
-    // secondDungeonDiv.style.left = "2075px"
-    //secondDungeonDiv
-    //secondDungeonDiv
-    //secondDungeonDiv.append(purpleMonster)
     gc.append(secondDungeonDiv)
     function show() {
         gc.style.overflowX = 'hidden'
@@ -126,8 +78,8 @@ function battle(player){
     }
 
     let opacityInterval = setInterval(show, 300)
-   //call quiz
-   //buildQuiz()
+   
+    mod2Quiz()// call quiz function
   }
 
  
@@ -242,85 +194,153 @@ function battle(player){
 
 //QUIZ PART
 
-
-//mod1 quiz questions
-const mod1Question = [
-  {
-    question: "You want the variable pronto to be set to the current date and time. With Ruby, which of the following will accomplish this? ",
-    answers: { A: "pronto = Today.now", B: "pronto = DateTime.now", C: "pronto = Now.DateTime", D: "pronto = now" },
-    correctAnswer: "B"
-  }
-]
-
-
 function mod1Quiz(){
-  //moved the following lines to the beginning, so everything happens only once.
-    // let quiz = document.createElement('div')
-    // quiz.className = "quiz"
-    // quiz.id = "quiz-id"
-    // quiz.innerText = "hello"
-    // const submitBtn = document.createElement('button')
-    // const results = document.createElement('div')
-    // results.id = "results"
-    // dunDiv.appendChild(quiz)
-    // dunDiv.appendChild(submitBtn)
-    // dunDiv.appendChild(results)
-  
+
+  //display form
+  let quizContainer = document.createElement('div')
+  quizContainer.className = "quiz1"
+  quizContainer.id = "quiz-container"
+  let quiz = document.createElement('div')
+  quiz.setAttribute("id", "quiz-content")
+  let submitBtn = document.createElement('button')
+  submitBtn.setAttribute("type", "submit")
+  submitBtn.setAttribute("class", "btn btn-primary")
+  submitBtn.setAttribute("name", "submit")
+  submitBtn.innerText = "Submit"
+  const results = document.createElement('div')
+  results.id = "results"
+  dunDiv.appendChild(quizContainer)
+  quizContainer.append(quiz, submitBtn, results)
+
+//fetch the question  
    let output = []
    mod1Question.forEach((currentQuestion, questionNumber)=>{
     let answers = [] 
-    for(letter in currentQuestion){
+    for(letter in currentQuestion.answers){
         //add radio button to each choice
         //this part to be fixed.
         answers.push( `<p><label>
-                   <input type="radio" name="question${questionNumber.answers}" value="${letter}"> 
-                   ${letter} : //${currentQuestion.answers[letter]} 
+                   <input type="radio" name="question${questionNumber}" value="${letter}"> 
+                   ${letter} : 
+                   ${currentQuestion.answers[letter]} 
                   </label>`)
                   //console.log(currentQuestion)
        }
    
-    output.push(`<p><div class="question"> <li>${currentQuestion} </li></div>
+    output.push(`<p><div class="question"> <li>${currentQuestion.question} </li></div>
                  <p><div class="answers">  ${answers.join("")} </div>`)                
                    
    })
    quiz.innerHTML = output.join("") 
 
+
+   
 }
 
 
-//below to be completed 
+
+function mod2Quiz(){
+
+  //display form
+  let quizContainer = document.createElement('div')
+  quizContainer.className = "quiz2"
+  //quizContainer.id = "quiz-container"
+  let quiz = document.createElement('div')
+  quiz.setAttribute("id", "quiz-content")
+  let submitBtn = document.createElement('button')
+  submitBtn.setAttribute("type", "submit")
+  submitBtn.setAttribute("class", "btn btn-primary")
+  submitBtn.setAttribute("name", "submit")
+  submitBtn.innerText = "Submit"
+  const results = document.createElement('div')
+  results.id = "results"
+  secondDungeonDiv.appendChild(quizContainer)
+  quizContainer.append(quiz, submitBtn, results)
+  
+
+  // fetch mod2 question
+  let output = []
+  mod2Question.forEach((currentQuestion, questionNumber)=>{
+   let answers = [] 
+   for(letter in currentQuestion.answers){
+       answers.push( `<li>
+                      <input type="radio" name="question${questionNumber}" value="${letter}"> 
+                     ${letter} : ${currentQuestion.answers[letter]} 
+                     </li>`)
+                 //console.log(currentQuestion)
+      }
+  
+   output.push(`<p><div class="question"> <li>${currentQuestion.question} </li></div>
+                <p><div class="answers">  ${answers.join("")} </div>`)                
+                  
+  })
+  quiz.innerHTML = output.join("") 
+  //console.log(quizContainer)
+}
+
+
+
+
+
+
+
+
+//below to be completed
+const mod1Question = [
+  {
+  question: "Which of the following methods can be used in Ruby to get a random number?",
+  answers: {
+    a: "rand",
+    b: "Math.GetRandomNumber",
+    c: "rnd",
+    d: "$random"
+           },
+  correctAnswer: "a"
+          }
+          ]
+
 
 const mod2Question = [
   {
-    question: "",
-    answers: {
-      a: "",
-      b: "",
-      c: ""
-    },
-    correctAnswer: ""
-  }
-]
+  question: "You need to convert the string salt to a number in order to see if it exceeds a cutoff value. Which of the following methods should be used to accomplish this?",
+  answers: {
+    a: "num",
+    b: "to_i",
+    c: "integer",
+    d: "None of the above"
+           },
+  correctAnswer: "b"
+          }
+          ]
+
+
 
 const mod3Question = [
   {
-    question: "Which of the following is not a reserved word in JavaScript?",
-    answers: { A: "interface", B: "throws", C: "program", D: "short" },
-    correctAnswer: "C"
-  }
-]
+  question: "Which of the following is not a reserved word in JavaScript?",
+  answers: {
+    a: "interface",
+    b: "throws",
+    c: "program",
+    d: "hello world"
+           },
+  correctAnswer: "c"
+          }
+         ]
 
-const mod4Question = [
-  {
-    question: "",
-    answers: {
-      a: "",
-      b: "",
-      c: ""
-    },
-    correctAnswer: ""
-  }
-]
+
+ const mod4Question = [
+    {
+      question: "In JavaScript, we do not have datatypes like integer and float. What is the function that can be used to check if the number is an integer or not?",
+      answers: {
+      a: "Integer(value)",
+      b: "ifInteger(value)",
+      c: "isInteger(value)",
+      d: "I don't know, just show me the number!"
+               },
+     correctAnswer: "c"
+              }
+          ]
 
 const mod5Question = [
   {
