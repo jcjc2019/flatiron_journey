@@ -113,7 +113,6 @@ body
     background-color:transparent;
     border: 10;
     color: white;
-   
     font-size: 0.8em;
 }
 
@@ -123,6 +122,45 @@ body
     border-radius: 25px;
     margin: 0 auto;
     left: 1850px;
+    z-index: 2;
+    background-color:transparent;
+    border: 10;
+    color: white;
+    font-size: 0.8em;
+}
+
+.quiz3
+{
+    position: absolute;
+    border-radius: 25px;
+    left: 1500px;
+    margin: 0 auto;
+    z-index: 2;
+    background-color:transparent;
+    border: 10;
+    color: white;
+    font-size: 0.8em;
+}
+
+.quiz4
+{
+    position: absolute;
+    border-radius: 25px;
+    left: 1500px;
+    margin: 0 auto;
+    z-index: 2;
+    background-color:transparent;
+    border: 10;
+    color: white;
+    font-size: 0.8em;
+}
+
+.quiz5
+{
+    position: absolute;
+    border-radius: 25px;
+    left: 1500px;
+    margin: 0 auto;
     z-index: 2;
     background-color:transparent;
     border: 10;
