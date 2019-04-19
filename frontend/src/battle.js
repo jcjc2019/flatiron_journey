@@ -144,6 +144,8 @@ function battle(player){
 }
 
 
+    const quizContainer = document.createElement('div')
+    quizContainer.setAttribute("id", "quiz")
 
   function fourthBattle(player){
     let fourthDungeonDiv = document.createElement('div')
@@ -181,6 +183,9 @@ function battle(player){
 
 
 
+    const resultsContainer = document.createElement('div')
+    resultsContainer.setAttribute('id', 'results')
+    dunDiv.append(quizContainer, submitButton, resultsContainer)
 
   function fifthBattle(player){
     let fifthDungeonDiv = document.createElement('div')
@@ -268,7 +273,8 @@ const resultsContainer = document.createElement('div')
 resultsContainer.setAttribute('id', 'results')
 //dunDiv.append(quizContainer, submitButton, resultsContainer)
 
-const myQuestions = [
+//MAKE QUIZ, SHOW QUIZ, CALCULATE RESULTS
+const mod1Question = [
   {
     question: "",
     answers: {

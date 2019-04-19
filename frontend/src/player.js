@@ -1,18 +1,22 @@
 
 class Player{
     constructor(playerData){
-        //console.log(playerData.x)
+        // console.log(playerData)
         const player =  document.createElement('img')
         player.src = playerData.staticImgUrl
         player.style.width = '200px'
         player.style.height = '150px'
         player.style.left = window.innerWidth / 2 - 100 //playerData.x//
-        player.style.top = "55%"
+        player.style.top = "32%"
+        player.style.left = "40%"
         // player.style.bottom = "10%"
-        player.style.position = 'fixed'
-        player.style.zIndex = 1
+        player.style.position = 'absolute'
+        player.style.zIndex = 2
+
+        // player.style.display = "none"
         //this.element = player
-        bg.appendChild(player)
+        document.querySelector('#game-area').prepend(player)
+        
         this.move(player, playerData)
         this.stop(player, playerData)
         setInterval(() => {
@@ -32,9 +36,8 @@ class Player{
     
     move=(player, playerData)=>{
         document.addEventListener('keydown', e=> {
-           //console.log(player.style.left)
-           //console.log(window.scrollX)
            battle(player)
+            if(e.repeat) return
             if(e.key == "ArrowRight" ) { //&& parseInt(player.style.left) < 3000
                 this.direction = 'right'
                 player.src = playerData.rightImgUrl
@@ -84,7 +87,7 @@ class Player{
                        'Content-Type': 'application/json'
                          },
                 body: JSON.stringify({
-                        x: window.scrollX//player.style.left// to be fixed, update the position but when refresh it goes back to beginning part
+                        x: document.querySelector('.game-container').scrollLeft//player.style.left// to be fixed, update the position but when refresh it goes back to beginning part
                         })          
           }) 
         })

@@ -7,13 +7,14 @@
     <title>A Pokemon's Coding Boot Camp Journey</title>
     <!--Bootstrap library-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/index-scrolling.css">
+    <link rel="stylesheet" href="./assets/index-scrolling.css">
+    <link rel="stylesheet" type="text/css" href="assets/main_stage.css">
 
   </head>
   <body>
 
     
-    <iframe controls loop src="assets/game_audio.mp3" width="100px" height="100px" style = "display: none" allowullScreen></iframe>
+    <iframe controls loop src="./assets/game_audio.mp3" width="100px" height="100px" style = "display: none" allowullScreen></iframe>
     
     <div class="fixed-parallax" id="parallax-container">
 
@@ -90,23 +91,23 @@
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="character" id="pikachu" value="pikachu" checked>
             <label class="form-check-label" for="pikachu">
-              <img src="assets/pikachu_static_320.gif">
+              <img src="./assets/pikachu_static_320.gif">
             </label>
           </div>
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="character" id="zorua" value="zorua">
             <label class="form-check-label" for="zorua">
-              <img src="assets/zorua_static_320.gif">
+              <img src="./assets/zorua_static_320.gif">
             </label>
           </div>
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="character" id="bulbasaur" value="bulbasaur">
             <label class="form-check-label" for="bulbasaur">
-              <img src="assets/bulbasaur_static.gif">
+              <img src="./assets/bulbasaur_static.gif">
             </label>
           </div>
         </div>
-        <button type="submit" class="btn btn-lg btn-light" name="submit" ><a href="#game-area">Start a new game</a></button>
+        <button type="submit" class="btn btn-lg btn-light" name="submit" >Start a new game</button>
       </form>
     </div>
 
@@ -121,15 +122,15 @@
           <small id="nameHelp" class="form-text text-muted">Enter a username to start your game.</small>
         </div>
 
-        <button type="submit" class="btn btn-lg btn-light" name="submit"><a href="#game-area">Resume your game</a></button>
+        <button type="submit" class="btn btn-lg btn-light" name="submit">Resume your game</button>
       </form>
 
     </div>
-
+ 
   	<div class="image four">
       <div class="canvas" id ="game-area">
-        <div class="game-container">
-           <object type="text/html" data="game.html"></object>
+        <div class="game-container" id = "game-container">
+           <!-- <object type="text/html" data="game.html"></object> -->
         </div>
         <canvas id="game-canvas"></canvas>
       </div>
@@ -137,10 +138,20 @@
     </div>
     </div>
 
-    <!--form actions, connect to backend server-->
-    <script type="text/javascript" src="./src/game-data.js"></script>
+
     <!--set canvas game area-->
     <script type="text/javascript" src="./src/set-game-canvas.js"></script>
+    <!--move js files from game.html-->
+    <script type="text/javascript" src="./src/player.js"></script>
+
+    <script type="text/javascript" src="src/stage.js"></script>
+    <script type="text/javascript" src="src/game.js"></script>
+    <script type="text/javascript" src="src/npc.js"></script>
+    <script type="text/javascript" src="src/battle.js"></script>
+    
+    <!--form actions, connect to backend server-->
+    <script type="text/javascript" src="./src/game-data.js"></script>
+
   </body>
 
 </html>
