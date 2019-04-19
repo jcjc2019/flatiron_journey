@@ -30,31 +30,26 @@ function battle(player){
       //console.log(dunDiv.style.opacity)
     }
     setInterval(show, 300)
-    
+  
+    //QUIZ Html elements appended.
+
+    const quizContainer = document.createElement('div')
+    quizContainer.setAttribute("id", "quiz")
+
+    const submitButton = document.createElement('button')
+    submitButton.setAttribute('id', 'submit')
+
+    const resultsContainer = document.createElement('div')
+    resultsContainer.setAttribute('id', 'results')
+    dunDiv.append(quizContainer, submitButton, resultsContainer)
+
 
    } // end of first stage
 }
 
 
-
-
-
-
-
-//QUIZ PART
-
-const dunDiv = document.querySelector("#dungeon")
-const quizContainer = document.createElement('div')
-quizContainer.setAttribute("id", "quiz")
-
-const submitButton = document.createElement('button')
-submitButton.setAttribute('id', 'submit')
-
-const resultsContainer = document.createElement('div')
-resultsContainer.setAttribute('id', 'results')
-dunDiv.append(quizContainer, submitButton, resultsContainer)
-
-const myQuestions = [
+//MAKE QUIZ, SHOW QUIZ, CALCULATE RESULTS
+const mod1Question = [
   {
     question: "",
     answers: {
