@@ -32,13 +32,9 @@ class Player{
     
     move=(player, playerData)=>{
         document.addEventListener('keydown', e=> {
-           //console.log(player.style.left)
-           //console.log(window.scrollX)
-          
-            battle(player) 
-
-            if(e.repeat) return 
-              //bg.className = "animation"
+           console.log(player.style.left)
+           console.log(window.scrollX)
+           battle(player)
             if(e.key == "ArrowRight" ) { //&& parseInt(player.style.left) < 3000
                 this.direction = 'right'
                 player.src = playerData.rightImgUrl
@@ -49,7 +45,6 @@ class Player{
             }
           })
     }
-
     renderDungeon() {
       let dunDiv = document.createElement('div')
       dunDiv.id = "dungeon"
