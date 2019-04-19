@@ -14,7 +14,7 @@ class PlayersController < ApplicationController
     end
 
     def update 
-        player = Player.find(params[:id])
+        player = Player.find_by(username: params[:id])
         player.update(player_attributes)
         render json: player
     end

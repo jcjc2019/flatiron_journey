@@ -49,7 +49,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
       oldName.value;
       fetch(`${playersURL}/${oldName.value}`)
         .then(response => response.json())
-        .then(oldPlayerData => new Player(oldPlayerData)) //NEED REFACTOR TO MAKE THIS LINE WORK
+        .then(oldPlayerData => new Player(oldPlayerData))
+      //use js to select the background (object) that you want
+      //append the new player to the background.
       window.location.href = "#game-area";
   })
 

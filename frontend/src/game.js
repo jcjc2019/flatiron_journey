@@ -1,5 +1,5 @@
-// const bg = document.querySelector('#game-container') //to combine two pages together
-const bg = document.querySelector('div')
+const bg = document.querySelector('#game-container') //to combine two pages together
+//const bg = document.querySelector('div')
 const bgUrl = 'http://localhost:3000/stages/1'
 
 //fetch stage first
