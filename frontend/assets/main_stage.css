@@ -113,8 +113,9 @@ body
     background-color:transparent;
     border: 10;
     color: white;
-   
     font-size: 0.8em;
+    max-width:500px;
+    word-wrap:break-word;
 }
 
 .quiz2
@@ -128,6 +129,53 @@ body
     border: 10;
     color: white;
     font-size: 0.8em;
+    max-width:500px;
+    word-wrap:break-word;
+}
+
+.quiz3
+{
+    position: absolute;
+    border-radius: 25px;
+    left: 1500px;
+    margin: 0 auto;
+    z-index: 2;
+    background-color:transparent;
+    border: 10;
+    color: white;
+    font-size: 0.8em;
+    max-width:500px;
+    word-wrap:break-word;
+}
+
+.quiz4
+{
+    position: absolute;
+    border-radius: 25px;
+    left: 1500px;
+    margin: 0 auto;
+    z-index: 2;
+    background-color:transparent;
+    border: 10;
+    color: white;
+    font-size: 0.8em;
+    max-width:500px;
+    word-wrap:break-word;
+}
+
+.quiz5
+{
+    position: absolute;
+    border-radius: 25px;
+    left: 1500px;
+    margin: 0 auto;
+    z-index: 2;
+    background-color:transparent;
+    border: 10;
+    color: white;
+    font-size: 0.8em;
+    max-width:500px;
+    word-wrap:break-word;
 }
 
 

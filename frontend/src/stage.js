@@ -96,7 +96,7 @@ class Stage{
       finalConvo.src = 'assets/conv2.gif'
       finalConvo.className = "conv"
       finalConvo.style.top = "40px";
-      finalConvo.style.left = "6130px"
+      finalConvo.style.left = "6000px"
       bg.appendChild(finalConvo)
       talkToFinal(finalConvo)//final conv event
     }
