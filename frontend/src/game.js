@@ -29,6 +29,19 @@ document.addEventListener("DOMContentLoaded", function(){
     //  testPlayer.style.display = "block"
    }
     ) //instantiate player 
-
-   
+})
+let welcome = document.querySelector("#About")
+welcome.addEventListener("click", function() {
+  window.AudioContext = window.AudioContext || window.webkitAudioContext;
+  var context = new AudioContext();
+  var music = new Howl({
+    src: ['assets/game_audio.mp3'],
+    buffer: false,
+    loop: true
+  });
+  console.log(context)
+  console.log(music)
+  context.resume()
+  music.play()   
+  
 })
