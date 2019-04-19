@@ -73,7 +73,7 @@ canvas {
     height: 250px;
     width: 200px;
     bottom: 10px;
-    left: 6100px;
+    left: 6000px;
     position: absolute
 }
 
@@ -114,8 +114,9 @@ p.show{
 .quiz
 {
     position: absolute;
-    left:700px;
+    left: 1100px;
     z-index: 1;
+    color: aliceblue;
 }
 
 

@@ -73,7 +73,7 @@ class Stage{
       redDragon.id = "redDragon"
       redDragon.src = 'assets/redDragon.gif'
       bg.appendChild(redDragon)
-
+     
       // create convo button
       const redDragonConvo =  document.createElement('img')
       redDragonConvo.src = 'assets/conv2.gif'
@@ -96,7 +96,7 @@ class Stage{
       finalConvo.src = 'assets/conv2.gif'
       finalConvo.className = "conv"
       finalConvo.style.top = "40px";
-      finalConvo.style.left = "6130px"
+      finalConvo.style.left = "5800px"
       bg.appendChild(finalConvo)
       talkToFinal(finalConvo)//final conv event
     }

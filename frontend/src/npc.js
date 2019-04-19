@@ -52,7 +52,7 @@ function talkToDragon(dragonConvo){
 
 function talkToRedDragon(redDragonConvo){
    const p = document.createElement('p')
-   p.style.marginLeft = "4750px"
+   p.style.marginLeft = "4650px"
    p.style.top = "40px"
    p.innerText = "Impressed! I didn't expect you can last this long. Now we are here in Mod 5, get ready for the challenge! Show me how to grab dynamic user info using React. No no, you don't hardcode it, I mean DRY. Gosh why you can't remember DRY principle...."
    bg.appendChild(p)
@@ -64,7 +64,7 @@ function talkToRedDragon(redDragonConvo){
 
 function talkToFinal(finalConvo){
    const p = document.createElement('p')
-   p.style.marginLeft = "6100px"
+   p.style.marginLeft = "6250px"
    p.style.top = "40px"
    p.innerText = "Muahahahahahahah...I am the final project! Now is the time to shine (or die). Let's put it all together, let me see if you are qualified to graduate. Josh, what do you think of this project?"
    bg.appendChild(p)

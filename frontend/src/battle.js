@@ -2,24 +2,32 @@ const gc = document.querySelector('.game-container')
 const dunDiv = document.createElement('div')
 const secondDungeonDiv = document.createElement('div') 
 
+
 const mod1Question = [
-                       {
-                           question:"Which of the following is not a reserved word in JavaScript?",
-                           answers:{ A: "interface", B: "throws", C: "program", D: "short"},
-                           correctAnswer:"C"
-                       }
-                     ]
+    {
+    question: "Which of the following is not a reserved word in JavaScript?",
+    answers: {
+      a: "interface",
+      b: "throws",
+      c: "program",
+      d: "hello world"
+             },
+    correctAnswer: "c"
+            }
+]
+
+
 
 function battle(player){
     
   // spaghetti code to render the dugeon
-  if(gc.scrollLeft == 760/*< 900 && gc.scrollLeft > 660 */) {
+  if(gc.scrollLeft == 560 /*< 750 && gc.scrollLeft > 600*/ ) {
           
     firstBattle(player)
          }
    else if(gc.scrollLeft < 1727 && gc.scrollLeft > 1647) {
         
-    secondBattle(player)
+    secondBattle(player) 
           }
    else if(gc.scrollLeft < 3000 && gc.scrollLeft > 2700){
           
@@ -29,7 +37,7 @@ function battle(player){
    
     fourthBattle(player)
           }
-   else if(gc.scrollLeft < 5200 && gc.scrollLeft > 5000) {
+   else if(gc.scrollLeft < 5600 && gc.scrollLeft > 5500) {
     
     fifthBattle(player)
           }   
@@ -52,15 +60,10 @@ function battle(player){
     monsterOne.style.top = '150px'
     monsterOne.style.left = '60px'
     monsterOne.style.zIndex ="2"
-    // dunDiv.style.left = '150px'
     /*______DUNGEON______*/
     dunDiv.style.bottom = '180px'
-    dunDiv.style.height = '355px'
-    dunDiv.style.width = '100%'
-    dunDiv.style.left = '880px';
-    // dunDiv
-    //dunDiv
-    //dunDiv.append(monsterOne)
+    dunDiv.style.backgroundRepeat = "repeat-x"
+    dunDiv.style.width = '1000%'
     gc.append(dunDiv)
     
     function show() {
@@ -243,11 +246,11 @@ function battle(player){
 function mod1Quiz(){
     const quiz = document.createElement('div')
     quiz.className = "quiz"
-    quiz.id = "id"
-    quiz.innerText = "hello"
     const submitBtn = document.createElement('button')
     const results = document.createElement('div')
+    quiz.id = "quiz"
     results.id = "results"
+    submitBtn.id = "submit"
     dunDiv.appendChild(quiz)
     dunDiv.appendChild(submitBtn)
     dunDiv.appendChild(results)
@@ -255,11 +258,11 @@ function mod1Quiz(){
    const output = []
    mod1Question.forEach((currentQuestion, questionNumber)=>{
     const answers = [] 
-    for(letter in currentQuestion){
+    for(letter in currentQuestion.answers){
         //add radio button to each choice
         answers.push( `<label>
                    <input type="radio" name="question${questionNumber}" value="${letter}">
-                   ${letter} :
+                   ${letter} : 
                    ${currentQuestion.answers[letter]}
                   </label>`)
                   //console.log(currentQuestion)
@@ -276,92 +279,3 @@ function mod1Quiz(){
 
 
 
-/*
-const dunDiv = document.querySelector("#dungeon")
-const quizContainer = document.createElement('div')
-quizContainer.setAttribute("id", "quiz")
-
-const submitButton = document.createElement('button')
-submitButton.setAttribute('id', 'submit')
-
-const resultsContainer = document.createElement('div')
-resultsContainer.setAttribute('id', 'results')
-//dunDiv.append(quizContainer, submitButton, resultsContainer)
-
-//MAKE QUIZ, SHOW QUIZ, CALCULATE RESULTS
-const mod1Question = [
-  {
-    question: "",
-    answers: {
-      a: "",
-      b: "",
-      c: ""
-    },
-    correctAnswer: ""
-  }
-]
-
-const mod2Question = [
-  {
-    question: "",
-    answers: {
-      a: "",
-      b: "",
-      c: ""
-    },
-    correctAnswer: ""
-  }
-]
-
-const mod3Question = [
-  {
-    question: "",
-    answers: {
-      a: "",
-      b: "",
-      c: ""
-    },
-    correctAnswer: ""
-  }
-]
-
-const mod4Question = [
-  {
-    question: "",
-    answers: {
-      a: "",
-      b: "",
-      c: ""
-    },
-    correctAnswer: ""
-  }
-]
-
-const mod5Question = [
-  {
-    question: "",
-    answers: {
-      a: "",
-      b: "",
-      c: ""
-    },
-    correctAnswer: ""
-  }
-]
-
-function buildQuiz() {
-  const output = [];
-  mod1Question.forEach((currentQuestion, questionnumber) => {
-    const answers = [];
-  })
-}
-
-function showResults() { }
-
-// display quiz right away
-buildQuiz();
-
-// on submit, show results
-submitButton.addEventListener('click', showResults);
-
-*/
