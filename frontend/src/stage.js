@@ -23,7 +23,7 @@ class Stage{
       const lightMonster = document.createElement('img')
       lightMonster.id = "lightMonster"
       lightMonster.src = 'assets/monster2.gif'
-      bg.appendChild(lightMonster)
+      bg.appendChild(lightMonster) 
 
       //create convo button
       const monsterLightConvo =  document.createElement('img')
@@ -45,8 +45,8 @@ class Stage{
       const purpleMonsterConvo =  document.createElement('img')
       purpleMonsterConvo.src = 'assets/conv2.gif'
       purpleMonsterConvo.className = "conv"
-      purpleMonsterConvo.style.top = "120px";
-      purpleMonsterConvo.style.left = "2030px"
+      purpleMonsterConvo.style.top = "110px";
+      purpleMonsterConvo.style.left = "2010px"
       bg.appendChild(purpleMonsterConvo)
       talkToPurpleMonster(purpleMonsterConvo)//purpleMonster conv event
       

@@ -69,11 +69,12 @@ canvas {
   display: block;
 }
 
-img{
-  width: 160px;
-  height: 160px;
+img
+{
+  width: 200px;
+  height: 200px;
   top: 15%;
-  bottom: 15%;
+  bottom: 5%;
 }
 
 .game-container {

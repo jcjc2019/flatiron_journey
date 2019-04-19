@@ -18,7 +18,7 @@ function battle(player){
         
     secondBattle(player)
           }
-   else if(gc.scrollLeft < 2800 && gc.scrollLeft > 2700){
+   else if(gc.scrollLeft < 2800 && gc.scrollLeft > 2700 ){
           
     thirdBattle(player)
           }
@@ -84,7 +84,7 @@ function battle(player){
 
  
   function thirdBattle(player){
-    //thirdDungeonDiv.id = "dungeon"
+    thirdDungeonDiv.id = "dungeon"
     thirdDungeonDiv.style.position = "absolute"
     thirdDungeonDiv.style.top = "0px"
     thirdDungeonDiv.style.zIndex = 1
@@ -97,6 +97,8 @@ function battle(player){
     thirdDungeonDiv.style.width = '1000%'
     gc.append(thirdDungeonDiv)
     
+
+    
     function show() {
         gc.style.overflowX = 'hidden'
         thirdDungeonDiv.style.opacity = (parseFloat(thirdDungeonDiv.style.opacity) + 0.3).toString()
@@ -104,8 +106,8 @@ function battle(player){
     }
 
     let opacityInterval = setInterval(show, 300)
-
-    mod3Quiz()
+      mod3Quiz()
+   
 }
 
   function fourthBattle(player){
@@ -187,11 +189,9 @@ function mod1Quiz(){
     for(letter in currentQuestion.answers){
         //add radio button to each choice
         //this part to be fixed.
-        answers.push( `<li>
-                      <input type="radio" name="question${questionNumber}" value="${letter}"> 
-                      ${letter} : 
-                      ${currentQuestion.answers[letter]} 
-                      </li>`)
+        answers.push( `<input type="radio"  name="question${questionNumber}" value="${letter}"> 
+                     <h6>${letter} : ${currentQuestion.answers[letter]} </h6>
+                     `)
                   //console.log(currentQuestion)
        }
    
@@ -231,10 +231,9 @@ function mod2Quiz(){
   mod2Question.forEach((currentQuestion, questionNumber)=>{
    let answers = [] 
    for(letter in currentQuestion.answers){
-       answers.push( `<li>
-                      <input type="radio" name="question${questionNumber}" value="${letter}"> 
-                     ${letter} : ${currentQuestion.answers[letter]} 
-                     </li>`)
+       answers.push( `<input type="radio"  name="question${questionNumber}" value="${letter}"> 
+                     <h6>${letter} : ${currentQuestion.answers[letter]} </h6>
+                      `)
                  //console.log(currentQuestion)
       }
   
@@ -252,7 +251,7 @@ function mod3Quiz(){
   //display form
   let quizContainer = document.createElement('div')
   quizContainer.className = "quiz3"
-  //quizContainer.id = "quiz-container"
+  // quizContainer.id = "quiz-container"
   let quiz = document.createElement('div')
   //quiz.setAttribute("id", "quiz-content")
   let submitBtn = document.createElement('button')
@@ -262,7 +261,9 @@ function mod3Quiz(){
   submitBtn.innerText = "Submit"
   const results = document.createElement('div')
   results.id = "results"
+  // const ul = document.createElement('ul')
   thirdDungeonDiv.appendChild(quizContainer)
+  // ul.append(quiz)
   quizContainer.append(quiz, submitBtn, results)
   
 
@@ -271,15 +272,14 @@ function mod3Quiz(){
   mod3Question.forEach((currentQuestion, questionNumber)=>{
    let answers = [] 
    for(letter in currentQuestion.answers){
-       answers.push( `<li>
-                      <input type="radio" name="question${questionNumber}" value="${letter}"> 
-                     ${letter} : ${currentQuestion.answers[letter]} 
-                     </li>`)
+       answers.push( `<input type="radio"  name="question${questionNumber}" value="${letter}"> 
+                      <h6>${letter} : ${currentQuestion.answers[letter]} </h6>
+                     `)
                  //console.log(currentQuestion)
       }
   
-   output.push(`<p><div class="question"> <li>${currentQuestion.question} </li></div>
-                <p><div class="answers">  ${answers.join("")} </div>`)                
+   output.push(`<div class="question"> ${currentQuestion.question}</div>
+                <div class="answers"> ${answers.join("")}</div>`)                
                   
   })
   quiz.innerHTML = output.join("") 
@@ -311,10 +311,9 @@ function mod4Quiz(){
   mod4Question.forEach((currentQuestion, questionNumber)=>{
    let answers = [] 
    for(letter in currentQuestion.answers){
-       answers.push( `<li>
-                      <input type="radio" name="question${questionNumber}" value="${letter}"> 
-                     ${letter} : ${currentQuestion.answers[letter]} 
-                     </li>`)
+       answers.push( `<input type="radio"  name="question${questionNumber}" value="${letter}"> 
+                      <h6>${letter} : ${currentQuestion.answers[letter]} </h6>
+                   `)
                  //console.log(currentQuestion)
       }
   
@@ -345,15 +344,14 @@ function mod5Quiz(){
   quizContainer.append(quiz, submitBtn, results)
   
 
-  // fetch mod3 question
+  // fetch mod5 question
   let output = []
   mod5Question.forEach((currentQuestion, questionNumber)=>{
    let answers = [] 
    for(letter in currentQuestion.answers){
-       answers.push( `<li>
-                      <input type="radio" name="question${questionNumber}" value="${letter}"> 
-                     ${letter} : ${currentQuestion.answers[letter]} 
-                     </li>`)
+       answers.push( `<input type="radio"  name="question${questionNumber}" value="${letter}"> 
+                      <h6>${letter} : ${currentQuestion.answers[letter]} </h6>
+                    `)
                  //console.log(currentQuestion)
       }
   

@@ -24,8 +24,9 @@ body
 }
 
 #josh
-{
-    height: 250px;
+{   
+    bottom: 270px;
+    height: 200px;
     padding-left: 50px;
     position: absolute;
 }
@@ -41,14 +42,14 @@ body
 #purpleMonster
 {
     height: 150px;
-    bottom: 10px;
+    bottom: 20px;
     left: 2200px;
     position: absolute;
 }
 
 #dragon
 {
-    height: 150px;
+    height: 250px;
     bottom: 200px;
     left: 3300px;
     position: absolute;
@@ -56,7 +57,7 @@ body
 
 #redDragon
 {
-    height: 250px;
+    height: 350px;
     bottom: 0px;
     left: 4600px;
     position: absolute;
@@ -133,7 +134,7 @@ body
 {
     position: absolute;
     border-radius: 25px;
-    left: 1500px;
+    left: 3500px;
     margin: 0 auto;
     z-index: 2;
     background-color:transparent;
@@ -146,7 +147,7 @@ body
 {
     position: absolute;
     border-radius: 25px;
-    left: 1500px;
+    left: 4300px;
     margin: 0 auto;
     z-index: 2;
     background-color:transparent;
@@ -159,7 +160,7 @@ body
 {
     position: absolute;
     border-radius: 25px;
-    left: 1500px;
+    left: 5600px;
     margin: 0 auto;
     z-index: 2;
     background-color:transparent;

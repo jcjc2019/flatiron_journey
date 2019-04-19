@@ -30,7 +30,7 @@ function talkToMonsterLight(monsterLightConvo){
 function talkToPurpleMonster(purpleMonsterConvo){
    const p = document.createElement('p')
    p.id = "conversation"
-   p.style.marginLeft = "2010px"
+   p.style.marginLeft = "1970px"
    p.style.top = "20px"
    p.innerText = "Baaaaaang! I am the Mod 2 challenge! Are you getting along with Rails? ActiveRecord is awesome but you have to understand how SQL works. So, tell me what is 'CRUD'?"
    bg.appendChild(p)
