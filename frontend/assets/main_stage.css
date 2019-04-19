@@ -71,8 +71,9 @@ canvas {
 #final
 {
     height: 250px;
+    width: 200px;
     bottom: 10px;
-    left: 6400px;
+    left: 6100px;
     position: absolute
 }
 
