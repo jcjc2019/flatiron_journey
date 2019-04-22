@@ -14,7 +14,7 @@ function battle(player){
           
     firstBattle(player)
           }
-   else if(gc.scrollLeft < 1600 && gc.scrollLeft > 1500) {
+   else if(gc.scrollLeft < 1550 && gc.scrollLeft > 1500) {
         
     secondBattle(player)
           }
@@ -26,7 +26,7 @@ function battle(player){
    
     fourthBattle(player)
           }
-   else if(gc.scrollLeft < 5000 && gc.scrollLeft > 4900) {
+   else if(gc.scrollLeft < 5900 && gc.scrollLeft > 5800) {
     
     fifthBattle(player)
           }   
@@ -39,7 +39,7 @@ function battle(player){
     dunDiv.style.top = "0px"
     dunDiv.style.zIndex = 1
     let monsterOne = lightMonster
-    dunDiv.style.backgroundImage = "url('https://i.ytimg.com/vi/kk9V3ZVNlyU/maxresdefault.jpg')"
+    dunDiv.style.backgroundImage = "url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/SnrBIe4yliufvlmcr/hd-loopable-background-with-nice-halloween-pumpkins_r0-_xain1x_thumbnail-full01.png')"
     dunDiv.style.backgroundRepeat = "repeat-x"
     dunDiv.style.opacity = 0
     monsterOne.style.zIndex ="2"
@@ -165,13 +165,12 @@ function battle(player){
 //QUIZ PART
 
 function mod1Quiz(){
-
   //display form
   let quizContainer = document.createElement('div')
   quizContainer.className = "quiz1"
-  //quizContainer.id = "quiz-container"
+  quizContainer.id = "quiz-container"
   let quiz = document.createElement('div')
-  //quiz.setAttribute("id", "quiz-content")
+  quiz.setAttribute("id", "quiz-content")
   let submitBtn = document.createElement('button')
   submitBtn.setAttribute("type", "submit")
   submitBtn.setAttribute("class", "btn btn-primary")
@@ -195,24 +194,80 @@ function mod1Quiz(){
                   //console.log(currentQuestion)
        }
    
-    output.push(`<p><div class="question"> <li>${currentQuestion.question} </li></div>
-                 <p><div class="answers">  ${answers.join("")} </div>`)                
-                   
-   })
-   quiz.innerHTML = output.join("") 
+  //add event listener to 1st submit button
+  submitBtn.addEventListener('click', () => {
+    // let player_answer = document.querySelector('input[name="question0"]:checked')
+    // if (player_answer.value = mod1Question[0]["correctAnswer"]) {
+    //   player.score = player.score + 10
+    //   fetch(playerUrl, {
+    //     method: "PATCH",
+    //     headers: {
+    //       'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify({
+    //       score: player.score
+    //     })
+    //   })
+    // .then((res) => res.json())
+    // .then(updatedPlayerData =>
+    //   document.querySelector("#results").innerHTML = `<p>Correct! <br> Your current score is ${updatedPlayerData.score} points.`
+    // )    
+    // };
 
+    function disappear() {
+      dunDiv.style.opacity = (parseFloat(dunDiv.style.opacity) - 0.3).toString()
+      if (dunDiv.style.opacity < 0) {
+        clearInterval(opacityInterval)
+        dunDiv.remove()
+         }
+      gc.style.overflowX = 'auto'; //enable player to move again
+    }
+      let opacityInterval = setInterval(disappear, 300)
+  })
 
-   
+  //fetch the question  
+  let output = []
+  mod1Question.forEach((currentQuestion, questionNumber) => {
+    let answers = []
+    for (letter in currentQuestion.answers) {
+      //add radio button to each choice
+      //this part to be fixed.
+      answers.push( `<input type="radio"  name="question${questionNumber}" value="${letter}"> 
+                    <h6>${letter} : ${currentQuestion.answers[letter]} </h6>
+                     `)
+      //console.log(currentQuestion)
+    }
+
+    output.push(`<h5><div class="question"> ${currentQuestion.question} </div>
+                 <p><div class="answers">  ${answers.join("")} </div>`)
+
+  })
+  quiz.innerHTML = output.join("") 
+})
 }
+
+
+/*
+function mod1Quiz(){
+  let quizDiv = document.querySelector(".quiz1")
+ if(!quizDiv){
+   renderQuizOne()
+ }else{
+   console.log('ALREADY have quiz1.')
+ }
+}
+*/
+
+
 
 
 
 function mod2Quiz(){
-
+  
   //display form
   let quizContainer = document.createElement('div')
   quizContainer.className = "quiz2"
-  //quizContainer.id = "quiz-container"
+  quizContainer.id = "quiz-container"
   let quiz = document.createElement('div')
   quiz.setAttribute("id", "quiz-content")
   let submitBtn = document.createElement('button')
@@ -226,13 +281,48 @@ function mod2Quiz(){
   quizContainer.append(quiz, submitBtn, results)
   
 
+  //add event listener to 2nd submit button
+  submitBtn.addEventListener('click', () => {
+    // //display results
+    // let player_answer = document.querySelector('input[name="question0"]:checked')
+    // //compare to correct answer. only 1 question in array.
+    // if (player_answer.value = mod1Question[0]["correctAnswer"]) {
+    //   //send score to database
+    //   player.score = player.score + 10
+    //   fetch(playerUrl, {
+    //     method: "PATCH",
+    //     headers: {
+    //       'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify({
+    //       score: player.score
+    //     })
+    //   })
+    // .then((res) => res.json())
+    // .then(updatedPlayerData =>
+    //   document.querySelector("#results").innerHTML = `<p>Correct! <br> Your current score is ${updatedPlayerData.score} points.`
+    // )    
+    // };
+
+    function disappear() {
+      secondDungeonDiv.style.opacity = (parseFloat(secondDungeonDiv.style.opacity) - 0.3).toString()
+      if (secondDungeonDiv.style.opacity < 0) {
+        clearInterval(opacityInterval)
+         secondDungeonDiv.remove()
+         }
+      gc.style.overflowX = 'initial'; //enable player to move again
+    }
+      let opacityInterval = setInterval(disappear, 300)
+  })
+
+
   // fetch mod2 question
   let output = []
   mod2Question.forEach((currentQuestion, questionNumber)=>{
    let answers = [] 
    for(letter in currentQuestion.answers){
        answers.push( `<input type="radio"  name="question${questionNumber}" value="${letter}"> 
-                     <h6>${letter} : ${currentQuestion.answers[letter]} </h6>
+                      <h6>${letter} : ${currentQuestion.answers[letter]} </h6>
                       `)
                  //console.log(currentQuestion)
       }
@@ -253,7 +343,7 @@ function mod3Quiz(){
   quizContainer.className = "quiz3"
   // quizContainer.id = "quiz-container"
   let quiz = document.createElement('div')
-  //quiz.setAttribute("id", "quiz-content")
+  quiz.setAttribute("id", "quiz-content")
   let submitBtn = document.createElement('button')
   submitBtn.setAttribute("type", "submit")
   submitBtn.setAttribute("class", "btn btn-primary")
@@ -266,6 +356,39 @@ function mod3Quiz(){
   // ul.append(quiz)
   quizContainer.append(quiz, submitBtn, results)
   
+  //add event listener to 3rd submit button
+  submitBtn.addEventListener('click', () => {
+    // //display results
+    // let player_answer = document.querySelector('input[name="question0"]:checked')
+    // //compare to correct answer. only 1 question in array.
+    // if (player_answer.value = mod1Question[0]["correctAnswer"]) {
+    //   //send score to database
+    //   player.score = player.score + 10
+    //   fetch(playerUrl, {
+    //     method: "PATCH",
+    //     headers: {
+    //       'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify({
+    //       score: player.score
+    //     })
+    //   })
+    // .then((res) => res.json())
+    // .then(updatedPlayerData =>
+    //   document.querySelector("#results").innerHTML = `<p>Correct! <br> Your current score is ${updatedPlayerData.score} points.`
+    // )    
+    // };
+
+    function disappear() {
+      thirdDungeonDiv.style.opacity = (parseFloat(thirdDungeonDiv.style.opacity) - 0.3).toString()
+      if (thirdDungeonDiv.style.opacity < 0) {
+         clearInterval(opacityInterval)
+         thirdDungeonDiv.remove() 
+        }
+      gc.style.overflowX = 'auto'; //enable player to move again
+    }
+    let opacityInterval = setInterval(disappear, 300)
+  })
 
   // fetch mod3 question
   let output = []
@@ -292,7 +415,7 @@ function mod4Quiz(){
   //display form
   let quizContainer = document.createElement('div')
   quizContainer.className = "quiz4"
-  //quizContainer.id = "quiz-container"
+  quizContainer.id = "quiz-container"
   let quiz = document.createElement('div')
   quiz.setAttribute("id", "quiz-content")
   let submitBtn = document.createElement('button')
@@ -305,8 +428,41 @@ function mod4Quiz(){
   fourthDungeonDiv.appendChild(quizContainer)
   quizContainer.append(quiz, submitBtn, results)
   
+  //add event listener to 4th submit button
+  submitBtn.addEventListener('click', () => {
+    // //display results
+    // let player_answer = document.querySelector('input[name="question0"]:checked')
+    // //compare to correct answer. only 1 question in array.
+    // if (player_answer.value = mod1Question[0]["correctAnswer"]) {
+    //   //send score to database
+    //   player.score = player.score + 10
+    //   fetch(playerUrl, {
+    //     method: "PATCH",
+    //     headers: {
+    //       'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify({
+    //       score: player.score
+    //     })
+    //   })
+    // .then((res) => res.json())
+    // .then(updatedPlayerData =>
+    //   document.querySelector("#results").innerHTML = `<p>Correct! <br> Your current score is ${updatedPlayerData.score} points.`
+    // )    
+    // };
 
-  // fetch mod3 question
+    function disappear() {
+      fourthDungeonDiv.style.opacity = (parseFloat(fourthDungeonDiv.style.opacity) - 0.3).toString()
+      if (fourthDungeonDiv.style.opacity < 0) {
+          clearInterval(opacityInterval)
+          fourthDungeonDiv.remove() 
+         }
+      gc.style.overflowX = 'auto'; //enable player to move again
+    }
+    let opacityInterval = setInterval(disappear, 300)
+  })
+
+  // fetch mod4 question
   let output = []
   mod4Question.forEach((currentQuestion, questionNumber)=>{
    let answers = [] 
@@ -343,6 +499,39 @@ function mod5Quiz(){
   fifthDungeonDiv.appendChild(quizContainer)
   quizContainer.append(quiz, submitBtn, results)
   
+  //add event listener to 5th submit button
+  submitBtn.addEventListener('click', () => {
+    // //display results
+    // let player_answer = document.querySelector('input[name="question0"]:checked')
+    // //compare to correct answer. only 1 question in array.
+    // if (player_answer.value = mod1Question[0]["correctAnswer"]) {
+    //   //send score to database
+    //   player.score = player.score + 10
+    //   fetch(playerUrl, {
+    //     method: "PATCH",
+    //     headers: {
+    //       'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify({
+    //       score: player.score
+    //     })
+    //   })
+    // .then((res) => res.json())
+    // .then(updatedPlayerData =>
+    //   document.querySelector("#results").innerHTML = `<p>Correct! <br> Your current score is ${updatedPlayerData.score} points.`
+    // )    
+    // };
+
+    function disappear() {
+      fifthDungeonDiv.style.opacity = (parseFloat(fifthDungeonDiv.style.opacity) - 0.3).toString()
+      if (fifthDungeonDiv.style.opacity < 0) {
+          clearInterval(opacityInterval)
+          fifthDungeonDiv.remove()
+         }
+      gc.style.overflowX = 'auto'; //enable player to move again
+    }
+    let opacityInterval = setInterval(disappear, 300)
+  })
 
   // fetch mod5 question
   let output = []

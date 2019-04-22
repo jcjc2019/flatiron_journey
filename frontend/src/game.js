@@ -15,6 +15,7 @@ fetch(bgUrl)
   Stage.dragon()
   Stage.redDragon()
   Stage.final()
+  Stage.joshAgain()
 })
 
 

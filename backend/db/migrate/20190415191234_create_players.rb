@@ -5,7 +5,7 @@ class CreatePlayers < ActiveRecord::Migration[5.2]
       t.string :staticImgUrl
       t.string :leftImgUrl
       t.string :rightImgUrl
-      t.integer :score
+      t.integer :score, default: 0
       t.string :x
       t.timestamps
     end

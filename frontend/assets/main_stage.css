@@ -25,7 +25,7 @@ body
 
 #josh
 {   
-    bottom: 270px;
+    bottom: 200px;
     height: 200px;
     padding-left: 50px;
     position: absolute;
@@ -34,7 +34,7 @@ body
 #lightMonster
 {
     left: 1000px;
-    bottom: 100px;
+    /*bottom */
     height: 250px;
     position: absolute;
 }
@@ -42,7 +42,7 @@ body
 #purpleMonster
 {
     height: 150px;
-    bottom: 20px;
+    bottom: 200px;
     left: 2200px;
     position: absolute;
 }
@@ -50,15 +50,15 @@ body
 #dragon
 {
     height: 250px;
-    bottom: 200px;
+    bottom: 250px;
     left: 3300px;
     position: absolute;
 }
 
 #redDragon
 {
-    height: 350px;
-    bottom: 0px;
+    height: 250px;
+    bottom: 200px;
     left: 4600px;
     position: absolute;
 }
@@ -67,9 +67,18 @@ body
 {
     height: 250px;
     width: 200px;
-    bottom: 10px;
-    left: 6100px;
+    bottom: 200px;
+    left: 6300px;
     position: absolute
+}
+
+
+#second-josh
+{
+    bottom: 200px;
+    height: 200px;
+    padding-left: 6550px;
+    position: absolute;
 }
 
 .conv
@@ -80,7 +89,7 @@ body
 }
 
 
-#conversation {
+.conversation {
     width: 250px;
     height: 100px;
     border-style: solid;
@@ -98,7 +107,7 @@ body
     z-index:1;
 }
 
-#conversation.show {
+.conversation.show {
     -webkit-transition: opacity 0.5s;
     transition: 0.5;
     opacity: 1;
@@ -113,8 +122,10 @@ body
     z-index: 2;
     background-color:transparent;
     border: 10;
-    color: white;
+    color:white;
     font-size: 0.8em;
+    max-width:500px;
+    word-wrap:break-word;
 }
 
 .quiz2
@@ -128,19 +139,23 @@ body
     border: 10;
     color: white;
     font-size: 0.8em;
-}
+    max-width:500px;
+    word-wrap:break-word;
+} 
 
 .quiz3
-{
+{ 
     position: absolute;
     border-radius: 25px;
-    left: 3500px;
+    left: 3650px;
     margin: 0 auto;
     z-index: 2;
     background-color:transparent;
     border: 10;
     color: white;
     font-size: 0.8em;
+    max-width:500px;
+    word-wrap:break-word;
 }
 
 .quiz4
@@ -154,19 +169,23 @@ body
     border: 10;
     color: white;
     font-size: 0.8em;
+    max-width:500px;
+    word-wrap:break-word;
 }
 
 .quiz5
 {
     position: absolute;
     border-radius: 25px;
-    left: 5600px;
+    left: 6700px;
     margin: 0 auto;
     z-index: 2;
     background-color:transparent;
     border: 10;
     color: white;
     font-size: 0.8em;
+    max-width:500px;
+    word-wrap:break-word;
 }
 
 

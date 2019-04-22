@@ -7,13 +7,13 @@ class Stage{
       const josh = document.createElement('img')
       josh.id = 'josh'
       josh.src = 'assets/josh.gif'
-      josh.style.bottom = "0px"
+      //josh.style.bottom = "0px"
       bg.appendChild(josh)
       //create convo button
       const joshConvo =  document.createElement('img')
       joshConvo.src = 'assets/conv2.gif'
       joshConvo.className = "conv"
-      joshConvo.style.top = "20px";
+      joshConvo.style.top = "40px";
       joshConvo.style.left = "170px"
       bg.appendChild(joshConvo)
       talkToJosh(joshConvo)//josh conv event
@@ -30,7 +30,7 @@ class Stage{
       monsterLightConvo.src = 'assets/conv2.gif'
       monsterLightConvo.className = "conv"
       monsterLightConvo.style.top = "30px";
-      monsterLightConvo.style.left = "1020px"
+      monsterLightConvo.style.left = "1060px"
       bg.appendChild(monsterLightConvo)
       talkToMonsterLight(monsterLightConvo)//monsterLight conv event
     }
@@ -45,8 +45,8 @@ class Stage{
       const purpleMonsterConvo =  document.createElement('img')
       purpleMonsterConvo.src = 'assets/conv2.gif'
       purpleMonsterConvo.className = "conv"
-      purpleMonsterConvo.style.top = "110px";
-      purpleMonsterConvo.style.left = "2010px"
+      purpleMonsterConvo.style.top = "90px";
+      purpleMonsterConvo.style.left = "2050px"
       bg.appendChild(purpleMonsterConvo)
       talkToPurpleMonster(purpleMonsterConvo)//purpleMonster conv event
       
@@ -62,8 +62,8 @@ class Stage{
       const dragonConvo =  document.createElement('img')
       dragonConvo.src = 'assets/conv2.gif'
       dragonConvo.className = "conv"
-      dragonConvo.style.top = "100px";
-      dragonConvo.style.left = "3250px"
+      dragonConvo.style.top = "80px";
+      dragonConvo.style.left = "3280px"
       bg.appendChild(dragonConvo)
       talkToDragon(dragonConvo)//dragon conv event
 
@@ -101,4 +101,21 @@ class Stage{
       talkToFinal(finalConvo)//final conv event
     }
   
+    
+    static joshAgain=()=>{
+      const josh = document.createElement('img')
+      josh.id = 'second-josh'
+      josh.src = 'assets/josh.gif'
+      //josh.style.bottom = "0px"
+      bg.appendChild(josh)
+      //create convo button
+      const joshConvo =  document.createElement('img')
+      joshConvo.src = 'assets/conv2.gif'
+      joshConvo.className = "conv"
+      joshConvo.style.top = "30px";
+      joshConvo.style.left = "6570px"
+      bg.appendChild(joshConvo)
+      talkToJoshAgain(joshConvo)//josh conv event
+    } 
+    
 }    
